@@ -59,3 +59,28 @@ When a docker container is run in the foreground, the stdout is your only interf
 docker run -d -                         Run a command in the background mode to use other things
 docker attach <id> -                    Go into a container in background mode
 
+Lecture 4
+
+The tag specifies a version to an image. If no tag is specified, the latest one is used.
+By default, docker run does not read a standard input, and runs in a non interactive mode.
+
+The -i parameter allows the container to be run in interactive mode
+The application -it allows you to make a pseudo terminal to the docker interactive CLI
+
+Docker host is the system on which the docker image runs
+The application listens on a port, and is accessed using this port.
+The IP is the docker container's default IP and is an internal IP only accessible on the docker host.
+The IP of the docker host can be used, but the port inside the docker container must be mapped to the host of the
+machine running the application.
+
+docker run -p 80:5000 routes all traffic of 8080 to 5000. This allows a lot of instances to be run simultaneously
+on the host containers.
+
+Volume mapping is done in docker to persist data on a docker container. -v allows this volume mapping to a persisted 
+disk on the system.
+
+Additional details about a specific container are given by docker inspect <container-name>
+
+The logs of a containerized application can be viewed through docker logs
+
+Lecture 5
