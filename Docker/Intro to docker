@@ -160,3 +160,105 @@ Docker allows containers to resolve each other with the container names.
 Docker uses network namespaces, which create network spaces for each container. It uses virtual ethernet pairs to
 connect containers together
 
+Lecture 9
+
+/var/lib/docker is the filesystem made by docker to store data
+
+Dockerfiles can reuse layers from the cache when a build command is given, to build images faster and saves disk space
+A writable layer is used to store files created by the container. 
+The image layers are read only and the container layers are read write. The read write layer allows to make copies
+to make the read only layer files accessible to this layer
+
+Copy-on-write is used to reduce disk space.
+
+docker volume create <name> creates a persistent data volume and can be mounted inside the read write layer by 
+specifying -v in docker run 
+
+bind mounts a directory from any host file
+--mount is more verbose, so is used with docker run and specify source and target
+
+Docker uses storage drivers such as AUFS, ZFS, Overlay, etc to make these volumes
+
+Docker chooses the best storage driver based on the underlying OS.
+
+Lecture 10
+
+docker compose creates a config in YAML that encapsulates services to run in a container
+docker-compose up brings up the docker container and is applicable only when you run the container on a host
+
+When you use docker run, we have to link the different containers deployed.
+docker run --link <container-name:host> is given to link different applications together
+
+In docker-compose.yml, we give the names of the image, ports and links as properties with the same as keys
+and the values as the values you want to associate with that name
+
+To run a docker build, the image is given a value to the path at which the Dockerfile and app code exists
+
+docker-compose version 2 allows you to specify a services properties and put the container spec in that YAML.
+A version must be specified in the YAML file as well. It automatically creates a dedicated bridge network and 
+sets up communications. So -links becomes obsolete.
+Version 2 also allows a depends_on property to a container, to start after the depends_on container is running.
+
+Version 3 comes with support for docker swarm.
+
+In the compose, we make a networks property and add a map of the networks a services it uses.
+
+This can be replaced in the networks options in each container.
+
+Lecture 11
+
+A registry is where docker images can be pulled from.
+
+Lecture 12
+
+Docker engine is a host with docker installed on it. 
+1. The docker daemon manages the docker objects.
+2. The rest API server manages the service APIs on the container
+3. The CLI uses the rest API to communicate with the domain.
+
+docker -H allows you to run the docker CLI with the daemon on another machine.
+
+Docker uses namespaces to abstract workspaces such as pids, mounts, networks etc.
+PID - the init process will have 1 in the container, but a normal PID on the host 
+Docker uses cgroups or control groups to control the amount of resources a container can use from the CPU.
+docker run --memory and docker run --cpus can specify the resources 
+
+Lecture 13
+
+If an application is being loaded intensively, new containers much be deployed to balance the load.
+Host health must also be maintained.
+
+Container orchestration solves this using tools and scripts to host containers in a production environment.
+It allows you to scale up and down depending on the load on the containers, and allows load balancing, resource Sharing
+security and so on.
+Docker Swarm, kubernetes and Mesos are used for this.
+
+Lecture 14
+
+Docker swarm allows you to distribute applications to different hosts for load balancing and scaling.
+One host is the master of the swarm and the others are slaves.
+docker init initialises the docker master and the commands provided are run on the slaves to link them with the master
+
+Docker services can be used to run specific services to run accross slave nodes
+
+docker service create --replicas=3 webserver on the master allows 3 replicas of webserver on 3 different nodes
+
+Lecture 15
+
+Kubernetes allows high level management of clusters by giving a variety of features.
+Kubernetes uses docker hosts to host applications as docker containers.
+A kubernetes cluster consists of nodes, with each node having kubernetes, and containers are launched.
+Failure control is done by node reassignment.
+A master exists with kubernetes control plane, and orchestrates the container design.
+The components used are 
+API server : Frontend for services to interact with the applications on the nodes
+etcd : key-value store for data to manage the cluster, stored on each node
+scheduler : distributes work accross nodes
+controllers: orchestration when node failure and load 
+runtime: underlying software to run containers
+Kubelet : agent running on the cluster
+
+kubectl is the command line interface to manage and deploy applications and related tasks.
+kubectl run is used to run an application.
+kubectl cluster-info gives the cluster info
+kubectl get nodes gives all the nodes on the cluster.
