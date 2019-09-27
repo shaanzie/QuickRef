@@ -92,3 +92,33 @@ These environment variables can be found in the inspect.
 
 Lecture 6
 
+To create an image, make a file called DockerFile.
+Sample DockerFile
+
+FROM Ubuntu
+
+RUN apt-get install python
+RUN pip install flask
+RUN pip install flask-mysql
+
+COPY ./opt/source-code
+
+ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run
+
+Then build it it locally using docker build DockerFile -t <path>
+
+docker push uploads it to the DockerHub
+
+A DockerFile is structured as INSTRUCTION and ARGUMENT. Here, FROM is an INSTRUCTION and Ubuntu is an ARGUMENT
+
+All DockerFiles must start with a FROM instruction to start from a base OS
+
+The ENTRYPOINT specifies a command to be run when the image is run as a container
+
+Each INSTRUCTION makes a new layer in the container when the docker build command is used.
+
+docker history <image> tells you the size taken in each layer.
+
+All layers are cached, incase of failure, or updates, the build takes lesser time.
+
+Lecture 7
