@@ -32,9 +32,30 @@ Containers vs images
 3. Devs give the prerequisities and dependencies to Ops, but they cant set up the applications. In docker,
 the DevOps work hand in hand through docker images. Ops can just deploy it directly.
 
-Lecture 2
+Lecture 2 + install
 
 Docker has two editions
 1. Community : Free
 2. Enterprise: For companies, management and etc, not free
+
+Lecture 3
+
+docker run -                            runs docker image; looks locally, if not found goes to DockerHub
+docker ps -                             show running container
+docker ps -a -                          all containers run or stopped
+docker stop <container id or name> -    stop container
+docker rm -                             Remove a stopped container
+docker images -                         lists all images on the host
+docker rmi <container name> -           removes the image
+docker pull -                           pulls image, dont run the container
+
+Unlike VMs, containers are not meant to host OS's, they just host applications. So they run the task and exit.
+The container lives only as long as the process inside it is living.
+
+docker exec -                           Run a command on a docker container
+
+When a docker container is run in the foreground, the stdout is your only interface when it is running
+
+docker run -d -                         Run a command in the background mode to use other things
+docker attach <id> -                    Go into a container in background mode
 
