@@ -137,3 +137,26 @@ To configure a default parameter, we use an ENTRYPOINT and CMD, and the CMD is a
 Somewhat like a default parameter
 
 dockrer run --entrypoint <new command> <container> <params> modifies the entrypoint given.
+
+Lecture 8
+
+docker run <container> --network specifies the network the container runs on.
+1. the bridge is a private network of internal IPs and containers talk to each other using these ports
+2. The docker host allows the containers to access containers directly through external ports, but can't run
+multiple web containers as all the ports are common
+3. none network runs in isolated states
+
+To isolate the containers on a host, docker creates only one bridge. We can make multiple bridges by giving
+docker network create --driver bridge --subnet <mask> custom-name
+
+docker network ls lists the existing networks in the docker host. 
+
+The network settings are seen through docker inspect and check Networks
+
+Containers can reach other using embedded DNS servers, rather than use the internal IP used, as the internal IP might
+change on reboot.
+Docker allows containers to resolve each other with the container names.
+
+Docker uses network namespaces, which create network spaces for each container. It uses virtual ethernet pairs to
+connect containers together
+
