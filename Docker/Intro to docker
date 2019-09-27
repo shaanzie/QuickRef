@@ -1,3 +1,5 @@
+Lecture 1
+
 Why do we need docker?
 1. The matrix of hell is a compatibility matrix to be made on every OS to link application stacks to the environment
 2. Compatibility was an issue.
@@ -29,3 +31,10 @@ Containers vs images
 2. Images have a package, a template and a plan
 3. Devs give the prerequisities and dependencies to Ops, but they cant set up the applications. In docker,
 the DevOps work hand in hand through docker images. Ops can just deploy it directly.
+
+Lecture 2
+
+Docker has two editions
+1. Community : Free
+2. Enterprise: For companies, management and etc, not free
+
