@@ -1,0 +1,7 @@
+Why do we need docker?
+1. The matrix of hell is a compatibility matrix to be made on every OS to link application stacks to the environment
+2. Compatibility was an issue.
+3. Modify the underlying frameworks without setting up entire application or service stacks.
+4. Docker helps containerize applications.
+5. Containers are isolated environments that share the same kernel, unlike virtual machines.
+6. Docker uses LXC Containers. 
