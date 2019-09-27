@@ -122,3 +122,18 @@ docker history <image> tells you the size taken in each layer.
 All layers are cached, incase of failure, or updates, the build takes lesser time.
 
 Lecture 7
+
+CMD defines the default command to be run in the docker image when a container is made.
+For example, the in an Ubuntu DockerFile, CMD bash is used.
+
+Docker does not attach a terminal by default, so we specify an overwrite as docker run <container> <COMMAND>
+
+Commands can be given as a JSON format as CMD ["command", "param"] and run with docker run <container> -t <COMMAND>
+
+To remove the command from the CLI, specify it in the ENTRYPOINT as ENTRYPOINT ["sleep"] for example.
+This allows you to run as docker run sleeper 1 instead of docker run sleeper sleep 1
+
+To configure a default parameter, we use an ENTRYPOINT and CMD, and the CMD is appended to the ENTRYPOINT
+Somewhat like a default parameter
+
+dockrer run --entrypoint <new command> <container> <params> modifies the entrypoint given.
