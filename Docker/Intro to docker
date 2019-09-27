@@ -5,3 +5,22 @@ Why do we need docker?
 4. Docker helps containerize applications.
 5. Containers are isolated environments that share the same kernel, unlike virtual machines.
 6. Docker uses LXC Containers. 
+
+Sharing a kernel - Run any OS on top of a kernel if its the same type of OS kernel (Linux maybe)
+Windows based containers cant be run with linux on it, for example. When a linux container is made to run on windows,
+windows makes a linux virtual machine run the docker container.
+
+Unlike hypervisors, docker doesnt run kernels. Docker just containerizes them.
+
+Containers vs VMs
+1. Docker sits on top of the OS, and manages the containers. The Hypervisor in a VM makes an OS on top of the OS.
+2. VMs take higher disk space, docker is light.
+3. Docker has less isolation because it runs on the same OS kernel, VMs have complete isolation.
+4. You usually use containers in VMs to use both technologies.
+
+How is it done?
+1. DockerHub has some images already made and published to use on the fly.
+2. docker run ansible, docker run nodejs, etc all work.
+3. It can run many instances of the same machine, with a configured load balancer
+4. Fault control also works by just destroying instances.
+
