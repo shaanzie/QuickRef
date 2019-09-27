@@ -84,3 +84,11 @@ Additional details about a specific container are given by docker inspect <conta
 The logs of a containerized application can be viewed through docker logs
 
 Lecture 5
+
+Environment variables are set using -e with docker. These can configure the application without explicitly editing the
+file
+
+These environment variables can be found in the inspect.
+
+Lecture 6
+
