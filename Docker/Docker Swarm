@@ -43,3 +43,11 @@ In the deploy configuration, you define:
 2. update configs: parallelism and delay
 3. restart policy
 
+deploy: placements: constraints allows you to place constraints on services to fill other nodes
+on the swarm.
+
+To bring down nodes for maintenance or so, we update --availibility = drain and the other nodes
+take the capabilities of that node and balance them amongst each other until the node comes back
+up.
+
+We have to add a update --force to the service to bring the node back up after update --availibility = active.
