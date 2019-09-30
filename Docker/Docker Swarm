@@ -1,0 +1,9 @@
+docker swarm init - Initialises the swarm 
+
+Swarm is a multi-host cluster and the node calling init acts as the master and a worker. The 
+workers can join the cluster with the swarm token.
+
+The standard compose file can be use to drive the docker swarm, but ignores the build service key.
+
+docker stack deploy -c <compose-file> <app>- used to deploy stacks specified by the compose files
+
