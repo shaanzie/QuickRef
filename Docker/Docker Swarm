@@ -14,6 +14,19 @@ You can deploy multiple stacks running in parallel, for example a front-end, bac
 monitoring stack.
 
 docker stack services <appname> - list ot services in a given stack
-
 docker service scale <app-service> = <replicas> - scaling up a service 
+docker swarm leave -f - leave the swarm and destroy it.
+docker-machine ls - gives the virtual machines set up
+docker-machine start <vmname> - starts the VM
+
+For setting up swarm on 2 machines:
+1. Log into a machine and do docker swarm init.
+2. Specify a network adapter for the swarm.
+3. In the other machine, join using docker swarm join
+4. Push the application images to DockerHub
+5. docker-machine env <vmname> gives the environment variables
+6. Use 5 to set the env variables on the VM according to your local machine to execute in the VM
+daemon.
+7. Do docker stack deploy -c <YAML file> <app>
+8. Done, docker swarm with 2 machines is set up
 
