@@ -7,3 +7,13 @@ The standard compose file can be use to drive the docker swarm, but ignores the 
 
 docker stack deploy -c <compose-file> <app>- used to deploy stacks specified by the compose files
 
+docker stack ls - list all the stacks deployed to the swarms
+docker service ls - list all the services related to the swarm, works only with docker swarm
+
+You can deploy multiple stacks running in parallel, for example a front-end, back-end and 
+monitoring stack.
+
+docker stack services <appname> - list ot services in a given stack
+
+docker service scale <app-service> = <replicas> - scaling up a service 
+
