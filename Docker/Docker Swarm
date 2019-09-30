@@ -30,3 +30,16 @@ daemon.
 7. Do docker stack deploy -c <YAML file> <app>
 8. Done, docker swarm with 2 machines is set up
 
+docker node is the management command of docker swarm nodes with promotion to managers, details,
+etc.
+
+services display tasks in the service and service monitoring. We can create services inside 
+services that can be scaled as well.
+
+docker service is the only way you can interact with the tasks, by scaling methods.
+
+In the deploy configuration, you define:
+1. replicas
+2. update configs: parallelism and delay
+3. restart policy
+
