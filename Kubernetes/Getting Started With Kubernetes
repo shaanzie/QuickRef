@@ -52,6 +52,12 @@ spec is given as a YAML file.
 
 The slave nodes update the workflow outputs in the registry.
 
-Minikube is the simplest way to get Kubernetes clusters up and running.
+Minikube is the simplest way to get Kubernetes clusters up and running and 
+configure the kube env.
+
+It can also be done through a Kubernetes Multi-Node cluster that emulates production envs 
+and is good for testing advanced scenarios.
+
+The Google container engine (GKE) is also used to configure the env.
 
 
