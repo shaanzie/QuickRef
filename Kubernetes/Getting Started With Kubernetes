@@ -60,4 +60,31 @@ and is good for testing advanced scenarios.
 
 The Google container engine (GKE) is also used to configure the env.
 
+minikube status - gives the status of minikube
 
+Nodes are hosts that run kubernetes applications
+Containers are units of packaging
+Pods are units of deployment
+Replication controllers ensure availibility and scalability
+Labels are key value pairs for identification
+Services are collection of pods exposed as an endpoint
+
+kubectl get nodes - how many nodes are running
+kubectl get cs - component status
+kubectl get pods - check pods
+kubectl config use-context "env" - switches contexts to another setup
+
+kubectl run <appname> --image=<image-name> --port=<port> - run a deployment which starts a pod of
+image-name
+
+kubectl expose deployment <app> --target-port=<port> --type=<port-type> - creates a service to
+expose the deployment
+
+kubectl get svc - shows created Services
+
+minikube ip - IP of minikube UI
+curl on this ip will give the service API endpoint's output
+
+minikube dashboard - opens the web UI
+
+It doesn't matter what environment you're pointing to, the commands remain the same.
