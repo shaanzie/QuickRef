@@ -26,3 +26,32 @@ These manage the lifecycle of containerized applications running in production.
 These also automate the distribution of applications and ensure higher levels of utilization
 and efficiency.
 
+Clusters are made on top of VMs to run applications. 
+Microservices are a bunch of homogenous applications running on multiple containers in 
+synchronization.
+
+Cluster management tools help manage the orchestration frameworks of the architecture.
+
+Kubernetes is a unified API for deploying web applications, batch jobs and databases.
+It decouples applications from machines through containers.
+It is an abstraction on a framework called Borg, and is a declarative approach to deploying 
+applications.
+
+It automates application configuration through service discovery.
+It maintains and tracks the global view of the cluster and is an API for deploying workflows.
+
+It defines rolling updates, canary deploys and blue-green deployments in a stateless 
+infrastructure.
+
+It allows you to build your own PaaS.
+It is a distributed architecture, where it has a master, responsible for maintaining global view
+and making decisions on a set of slave nodes.
+
+The master can be interacted with through the API, UI or the CLI (kubectl) where the architecture
+spec is given as a YAML file.
+
+The slave nodes update the workflow outputs in the registry.
+
+Minikube is the simplest way to get Kubernetes clusters up and running.
+
+
