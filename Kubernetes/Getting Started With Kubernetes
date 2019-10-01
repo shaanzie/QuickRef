@@ -8,3 +8,10 @@ Each container image has:
 6. Runtime
 Makes the job of DevOps very easy
 
+Docker solved the problem of packaging, deploying and running containerized applications.
+Docker has the 3 components:
+1. Container engine
+2. Registry
+3. Tools
+Docker is great for few containers running on few machines.
+However, production applications deal with dozens of containers running on hundreds of machines.
