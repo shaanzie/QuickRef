@@ -15,3 +15,14 @@ Docker has the 3 components:
 3. Tools
 Docker is great for few containers running on few machines.
 However, production applications deal with dozens of containers running on hundreds of machines.
+
+Unit of deployments change from machine to a container.
+The infrastructures are become immutable.
+
+We think of applications with emphasis on treating datacenters as a cluster.
+
+The new datacenter infrastructure use tools like docker swarm, kubernetes and mesosphere CD/OS.
+These manage the lifecycle of containerized applications running in production.
+These also automate the distribution of applications and ensure higher levels of utilization
+and efficiency.
+
