@@ -1,0 +1,10 @@
+Containers are becoming the standard unit of deployment. 
+Each container image has:
+1. Code
+2. Binaries
+3. Configuration
+4. Libraries
+5. Frameworks
+6. Runtime
+Makes the job of DevOps very easy
+
