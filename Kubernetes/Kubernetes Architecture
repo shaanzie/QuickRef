@@ -1,0 +1,26 @@
+Kubernetes has 2 different layers: master and nodes.
+The master is responsible for provisioning and managing the API requests.
+
+Kubernetes understands declarative artifacts (YAML) and depending on these rules,
+Kubernetes distributes the specification among pods.
+
+The Kubernetes master has 3 components:
+1. API server - exposes API endpoints as k8s is API-centric
+                kubectl is a golang binary application to deal with k8s' API server.
+                Even the dashboard consumes this API server
+2. Scheduler - responsible for physically scheduling containers or pods accross nodes.
+3. Controller - responsible for overall coordination and health of cluster. 
+4. etcd - distributed lightweight key-value database 
+          central database to store current cluster state
+          single source of truth for all components of the infrastructure
+
+The nodes do the heavy work and contains:
+1. kube-proxy - responsible for maintaining network configurations, to maintain distributed
+                networks and exposes services, core component
+2. Docker - engine responsible for running the container
+3. kubelet - talks to the API and master, and reports the health, metrics, etc to etcd and master
+            (Supervisord packages docker and kubelets together)
+4. fluentd - responsible for managing logs and talks to the central logging mechanism
+5. pods - every node can different pods of different configurations.
+6. Add-ons - DNS, UI, etc 
+
