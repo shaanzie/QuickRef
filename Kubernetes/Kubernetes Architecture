@@ -24,3 +24,26 @@ The nodes do the heavy work and contains:
 5. pods - every node can different pods of different configurations.
 6. Add-ons - DNS, UI, etc 
 
+Kubernetes has pods which are fundamental deploying units of k8s.
+Pods are groups of one or more containers that are always co-located, co-Scheduled and
+run in a shared context.
+Containers in the same pod have the same hostname.
+Each pod is isloated by:
+1. Process ID - PID
+2. Network namespace
+3. Interprocess communication (IPC) namespace
+4. Unix Time Sharing (UTC) namespace
+
+It serves as an alternative to a VM with multiple processes
+
+Labels and selectors are key/value pairs associated with k8s objects
+They are used to organize and select subsets of objects
+They are attatched to objects at creation time but modified at any time
+Metadata is assigned to every pod and it is selectively used to pick pods.
+
+Services are an abstraction to define a logical set of pods bound by a policy by to access them
+They are exposed through internal and external endpoints
+They can also point to non-Kubernetes endpoints through a virtual-IP-bridge
+they support with TCP or UDP, and interface with kube-proxy to manipulate iptables
+The service can be exposed internal or external to the cluster
+
