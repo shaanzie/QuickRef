@@ -47,3 +47,9 @@ They can also point to non-Kubernetes endpoints through a virtual-IP-bridge
 they support with TCP or UDP, and interface with kube-proxy to manipulate iptables
 The service can be exposed internal or external to the cluster
 
+kubectl cluster-info gives what is running on the cluster
+
+Replication controllers ensure that a pod or a homogenous set of pods are always up and available
+It always maintains the desired number of pods
+RCs and Pods are associated through Labels
+
