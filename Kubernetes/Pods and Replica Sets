@@ -22,3 +22,12 @@ spec:   //Define specification
                     containerPort: 80
                     protocol: TCP
 
+
+To expose the pod though, you need a service.
+kubectl expose pod mypod --type=NodePort - allows to expose the pod over the node specified
+This creates a dummy service running on the node
+
+Each container inherits the name of the pod and each pod has an IP address in a flat shared
+networking space. Volumes are shared by containers in a pod.
+
+A replication controller ensures that a standard number of pods is always up.
