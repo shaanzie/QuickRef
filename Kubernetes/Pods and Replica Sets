@@ -1,0 +1,6 @@
+A pod is a group of containers that are always co-located and co-scheduled that share the context.
+Containers in a pod share the same IP address, ports, hostname and storage
+Pods are scheduled in Nodes and are modeled like VMs, where each container represents one process.
+They are also tightly coupled with other containers in the same pod.
+They act as the fundamental unit of deployment in kubernetes.
+
