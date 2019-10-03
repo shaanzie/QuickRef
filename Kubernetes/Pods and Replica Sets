@@ -31,3 +31,11 @@ Each container inherits the name of the pod and each pod has an IP address in a 
 networking space. Volumes are shared by containers in a pod.
 
 A replication controller ensures that a standard number of pods is always up.
+Excess pods are killed, and new pods are launched when existing ones fail or get deleted
+RCs and Pods are associated through labels
+
+Replica sets are the next generation of RCs
+Labels and selectors are used for associating pods
+
+kubectl scale rc <name> --replicas=<number> - allows to scale pods directly
+
