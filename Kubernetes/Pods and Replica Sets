@@ -4,3 +4,21 @@ Pods are scheduled in Nodes and are modeled like VMs, where each container repre
 They are also tightly coupled with other containers in the same pod.
 They act as the fundamental unit of deployment in kubernetes.
 
+A sample pod YAML looks like this
+
+apiVersion: "v1"
+kind: Pod   //Specify the kind of k8s object
+metadata: 
+    name: mypod
+    labels: 
+        app: demo
+        env: test
+spec:   //Define specification 
+    containers:
+        -   name: nginx
+            image: nginx
+            ports: 
+                -   name: http
+                    containerPort: 80
+                    protocol: TCP
+
