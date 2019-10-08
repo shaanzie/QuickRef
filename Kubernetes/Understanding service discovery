@@ -27,3 +27,4 @@ There are three service types
 2. NodePort - endpoint reachable from the outside to interact with services in the clusters whose services are exposed
 3. LoadBalancer - endpoint reachable from an external load balancer mapped to a <NodeIP>:NodePort address
 
+kubectl apply -f <svc-modified> - Applies changes done to services
