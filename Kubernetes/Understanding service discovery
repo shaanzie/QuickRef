@@ -10,3 +10,10 @@ Each service exposes one of more ports and targetPorts
 The targetPort is mapped to the port exposed by matching pods
 The K8s service supports TCP and UDP
 
+Services can encapsulate pods based on labels, and all traffic can be flown into the respective pods
+Every node on k8s exposes only 1 nodePort to the outside world, but the target port binds to a unique port
+
+DNS servers watch the K8s API for new services and creates a set of DNS record for each service
+Docker Link compatible environment varialbles are made in all pods by k8s. Containers can use these varialbles
+to talk to the service endpoint
+
