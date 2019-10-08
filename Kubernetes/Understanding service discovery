@@ -1,0 +1,12 @@
+A service is an abstraction of a logical set of pods defined by a policy
+The pods have very ephemeral IPs and once a pod is desstroyed and brought back up, they need to be referenced
+These can be front-end or backend pods, and usually, might be referenced through DNS techniques, but not in the case
+of ephemeral IPs
+
+A service acts as an intermediary for pods to talk to each other.
+Selectors are used to access the pods that match a specific label
+Each service exposes one of more ports and targetPorts
+
+The targetPort is mapped to the port exposed by matching pods
+The K8s service supports TCP and UDP
+
