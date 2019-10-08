@@ -17,3 +17,13 @@ DNS servers watch the K8s API for new services and creates a set of DNS record f
 Docker Link compatible environment varialbles are made in all pods by k8s. Containers can use these varialbles
 to talk to the service endpoint
 
+All pods belonging to the same namespace get the same environment variables. So while migrating pods from docker 
+compose environments, no code needs to be changed.
+
+Pods in other namespaces can access the service by adding the namespace to the DNS path
+
+There are three service types
+1. ClusterIP - endpoint reachable from within the cluster and is confined only to the cluster ( for backend services)
+2. NodePort - endpoint reachable from the outside to interact with services in the clusters whose services are exposed
+3. LoadBalancer - endpoint reachable from an external load balancer mapped to a <NodeIP>:NodePort address
+
