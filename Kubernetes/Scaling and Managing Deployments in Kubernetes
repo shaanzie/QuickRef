@@ -1,0 +1,20 @@
+Replica sets are associated with pod definitions in a different way than replication controller
+RC uses equality, whereas sets can use much more complex definitions.
+
+Deployments provide declarative updates for pods and Replica sets
+They define the state of the application and k8s ensures that the cluster maintains the
+desired state of the application
+Deployment objects are flexible for managing and scaling applications in k8s
+
+Deployments are used to 
+1. Create a Deployment
+2. Update a Deployment
+3. Perform rolling updates
+4. Perform rollback
+5. Pause/Resume a Deployment
+
+Canary Deployments are done by rolling an update to only a subset of users before sharing it to 
+all users.
+BlueGreen Deployments are done by having two simultaenous production environments where the Blue 
+environment runs an updated version and the Green environment runs the previous version.
+
