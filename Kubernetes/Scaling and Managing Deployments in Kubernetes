@@ -17,4 +17,3 @@ Canary Deployments are done by rolling an update to only a subset of users befor
 all users.
 BlueGreen Deployments are done by having two simultaenous production environments where the Blue 
 environment runs an updated version and the Green environment runs the previous version.
-

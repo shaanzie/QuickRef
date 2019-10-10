@@ -1,0 +1,7 @@
+Pods are ephemeral and stateless
+Volumes bring persistence to pods 
+Kubernetes Volumes are similar to docker volumes, but all containers in a pod can access the volume
+Volumes are associated with the life of the pod
+Dictionaries in the host are exposed as volumes
+Volumes may be based on a variety of storage backends
+
