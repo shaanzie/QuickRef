@@ -5,3 +5,28 @@ Volumes are associated with the life of the pod
 Dictionaries in the host are exposed as volumes
 Volumes may be based on a variety of storage backends
 
+Volumes can be host-based, block storage, DFS or others
+
+Host-Based: 
+In EmptyDir, volumes are created on the fly when pods are scheduled on the host. Mostly for 1-time tests
+In HostPath, one of the directories of the host is exposed as a volume
+
+PersistenceVolume (PV) : Networked storage in the cluster pre-provisioned by an administrator
+PersistenceVolumeChain(PVC) : Storage resource requested by a user
+StorageClass : Types of supported storage profiles offered by administrators
+
+Developers have to request for storage resources from Ops, and these claims are sanctioned by the Ops
+
+Storage provisioning workflow: 
+
+1. Administer registers PVs in the pool
+2. The Developers claim a PV from the pool
+3. The claim goes to the pool of persistent volumes
+4. The claim once sanctioned, gets references claim in the pods
+
+Lifecycle of a persistent volume:
+1. provisioning
+2. binding
+3. using
+4. releasing
+5. reclaiming
