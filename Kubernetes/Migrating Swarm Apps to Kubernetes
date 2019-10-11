@@ -19,3 +19,16 @@ from this.
 The Gossip network allows the workers to network each other
 The internal distributed state store contains the state of each master and worker.
 
+Swarm mode to K8s mappings
+
+(Controller) Manager Node - Master
+(Slave) Worker Node - Node
+(Workload Definition) Service - Deployment
+(Deployment Unit) Task - Pod
+(Scale-out definition) Replicas - Replica Sets
+(Service Discovery) DNS-based service discovery - DNS-based service discovery
+(Load Balancing) Ingress - Service
+(Port) PublishedPort - Endpoint
+(Storage) Volumes - Persisted Volumes
+(Network) Overlay Network - Flat Networking Space
+
