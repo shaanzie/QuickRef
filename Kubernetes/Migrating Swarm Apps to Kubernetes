@@ -1,0 +1,21 @@
+Swarm mode in k8s brings cluster management and orchestration to docker engine
+It is based on Swarmkit.
+
+Docker swarm existed as a standalone system on docker engine. Now, the orchestration engine
+is bundled in the Swarmkit.
+
+Swarm mode is initialised on one of the nodes, which becomes the manager, and the worker
+nodes join an existing swarm controller.
+
+Concepts:
+1. Manager node: Dispatches submitted tasks to worker nodes
+2. Worker node: Receive and execute on worker nodes
+3. Service: Definition of tasks to execute on worker nodes
+4. Task: Docker container and commands to run inside the container
+5. Load Balancing: Manager node uses ingress load balancing to expose the services
+
+A raft consensus group controls the consensus of the group of masters, the workers are isolated
+from this.
+The Gossip network allows the workers to network each other
+The internal distributed state store contains the state of each master and worker.
+
