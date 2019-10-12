@@ -5,3 +5,12 @@ Database runs are challenging due to
 1. Lack of stable naming convention
 2. Lack of stable persistent storage per Pod
 
+StatefulSets bring the concept of ReplicaSets to stateful Pods
+It enables running pods in clustered modes
+These are usually ideal for deploying highly available database workloads
+It is usually valuable for apps that need:
+1. Stable, unique network identifiers
+2. Stable, persistent storage
+3. Ordered, graceful deployment and scaling
+4. Ordered, graceful deletion and termination
+
