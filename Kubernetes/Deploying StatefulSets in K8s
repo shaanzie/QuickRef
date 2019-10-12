@@ -1,0 +1,7 @@
+Containers are designed to be stateless
+They use ephemeral storage
+Pods can be stateful using volumes
+Database runs are challenging due to 
+1. Lack of stable naming convention
+2. Lack of stable persistent storage per Pod
+
