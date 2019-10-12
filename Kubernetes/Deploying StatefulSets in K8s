@@ -14,3 +14,11 @@ It is usually valuable for apps that need:
 3. Ordered, graceful deployment and scaling
 4. Ordered, graceful deletion and termination
 
+K8s StatefulSets depend on a headless service for pod-pod communication
+Each pod gets a DNS name accessible to other pods in the Set
+It leverages persistent volumes and persistent volume claims
+Each pod is suffixed with a predictable, consistent ordinal index
+Pods are created sequentially, which allows a master/slave configuration
+Identity is consistent regardless of the node the pod is scheduled on
+Pods are terminated in LIFO Order
+
