@@ -20,3 +20,10 @@ Daemon sets are used in
 2. monitoring
 3. load balancers, reverse proxies, API gateways
 4. Generic background Jobs
+
+There are two types of job controllers in Kubernetes
+1. One time / Run on completion
+2. Scheduled Jobs
+Both are extremely useful in performing batch operations
+Jobs complement other controllers like Replica Set and Daemon set
+
