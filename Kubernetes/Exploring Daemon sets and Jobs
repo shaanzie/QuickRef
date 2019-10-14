@@ -27,3 +27,9 @@ There are two types of job controllers in Kubernetes
 Both are extremely useful in performing batch operations
 Jobs complement other controllers like Replica Set and Daemon set
 
+Each job creates one or more pods and ensures they are successfully terminated
+If a pod or node fails during execution , job controller restarts Jobs
+Jobs can also be used to run multiple pods in parallel
+A job can be scaled up using the kubectl scale command
+Job's spec may define the parallelism value for running multiple pods in parallel
+
