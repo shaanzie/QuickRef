@@ -6,3 +6,10 @@ Kubernetes controllers include
 5. Jobs (One Time)
 6. Cron Jobs
 
+Daemon sets run a copy of a pod on every node in a Kubernetes cluster
+Daemon sets and Replica sets are similar but have different use cases
+New nodes automatically gets a Daemon Set pod
+When a node is removed, the daemon set pod will not be rescheduled
+
+Total number of pods in the daemon set = the number of nodes in the cluster
+
