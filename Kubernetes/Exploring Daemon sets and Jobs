@@ -1,0 +1,8 @@
+Kubernetes controllers include
+1. Replica Sets
+2. Deployments
+3. Stateful Sets
+4. Daemon Sets
+5. Jobs (One Time)
+6. Cron Jobs
+
