@@ -13,3 +13,10 @@ When a node is removed, the daemon set pod will not be rescheduled
 
 Total number of pods in the daemon set = the number of nodes in the cluster
 
+Daemon sets bypass the scheduler and every node gets a pod. Replica sets provision pods unevenly over
+the nodes
+Daemon sets are used in
+1. logging aggregators
+2. monitoring
+3. load balancers, reverse proxies, API gateways
+4. Generic background Jobs
