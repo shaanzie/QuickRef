@@ -33,3 +33,12 @@ Jobs can also be used to run multiple pods in parallel
 A job can be scaled up using the kubectl scale command
 Job's spec may define the parallelism value for running multiple pods in parallel
 
+A cron job manages time based Jobs
+1. Once at a specified point in time
+2. Repeatedly at a specified point in time
+
+Each cron job is similar to one line of a crontab file
+Typical used cases:
+1. Schedule job execution at a given point in time
+2. Create a periodic job
+
