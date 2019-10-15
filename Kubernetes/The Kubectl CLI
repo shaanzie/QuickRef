@@ -1,0 +1,17 @@
+// Shows which nodes the pods are deployed on
+kubectl get pods -o wide
+
+// Run multiple pod replicas
+kubectl scale --replicas=<replicaNo> <pod>
+
+// Cordon a node - move pods on a node to another node for every new pod provisioned
+kubectl cordon <IP Of Node>
+
+// Uncordon a node
+kubectl uncordon <IP Of node cordoned>
+
+// Drain a node - evict a pod from a node and moves it to another node
+kubectl drain <IP of node> <Additional --force>
+
+// Shows status of pods and reports changes to pods
+kubectl get pods --watch-only
