@@ -15,3 +15,26 @@ kubectl drain <IP of node> <Additional --force>
 
 // Shows status of pods and reports changes to pods
 kubectl get pods --watch-only
+
+// Access the webserver without exposing it to the world
+kubectl port-forward <pod> <port>:<forwardPort>
+
+// Copy files from host
+kubectl exec -it <pod> <dir>
+cd <dir>
+kubectl cp <FILEPATH>
+
+// Explain objects
+kubectl explain <certificate>
+
+// Check YAML definition of a pod
+kubectl get pod -o = <YAML file>
+
+// Give JSON info
+kubectl get pod <POD> -o jsonpath=<JSONPATH> 
+
+// Edit the YAML file
+kubectl edit <object>/<objectname>
+
+// Proxy : Opens a tunnel into the kubernetes cluster
+kubectl proxy --port = <PORT_NUMBER>
