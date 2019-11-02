@@ -1,0 +1,14 @@
+Microservices are smaller processes that break up large monolithic programs to perform minimized tasks.
+
+Advantages of Microservices:
+1. Language independent
+2. Fast iterations
+3. Small teams
+4. Fault isolation
+5. Pairs well with containers
+6. SCALABLE - containerize these microservices
+
+Disadvantages of Microservices:
+1. Complex networking - Tracing back is very hard
+2. Overhead of managing databases and servers
+
