@@ -95,4 +95,22 @@ R = remainder ( ( D * (2 ^ r)) / G)
 
 ## Multiple Access Links and Protocols
 
+A point to point link consists of a single sender and a single receiver at the two ends of a link. Many link layer protocols have been designed for point-to-point links, such as the PPP and high-level data link control (HDLC). 
+
+The broadcast link can have several sending and receiving nodes all connected to the same, single, shared broadcast channel. When a node transmits a frame over broadcast, each node subscribed to the boradcast receives a copy.
+
+The main issue arises when we deal with coordination of multiple receivers and senders on a shared broadcast channel - the multiple access problem. 
+
+With multiple access protocols, nodes regulate their transmission onto a shared broadcast channel. Because all nodes are capable of sending and transmitting at the same time, all of the nodes can receive multiple frames at a time, where, all the transmitted frames collide at all the receivers. This causes intricacies that the nodes cannot untangle, and all these frames are lost, and the broadcast channel is wasted during the collision interval. 
+
+Multiple Access Protocols can belong to one of these categories
+1. Channel partitioning protocols
+2. Random access protocols
+3. Taking-turns protocols
+
+Each multiple access protocol needs to have the following characteristics
+1. When only one node has data to send, that node has a throughput of the rate of the broadcast channel.
+2. When M nodes have data to send, each node has a throughput of R/M bps on an average.
+3. The protocol is decentralised.
+4. The protocol is simple and easy to implement.
 
