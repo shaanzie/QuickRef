@@ -1,4 +1,4 @@
-# Quick references to widely used frameworks.
+# Quick References to Widely Used Frameworks and Concepts
 
 This repository is still under development, but it's main purpose is to provide a a quick revision into existing frameworks, which are mainly open source at the moment.
 
