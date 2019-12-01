@@ -337,3 +337,88 @@ A hub is a physical layer device that acts on individual bits rather than frames
     Each of the first 7 bytes of the preamble has a value 10101010, and the last byte is 10101011. This is to wake up the receiving adapters and to synchronize the clocks to the sender's clock. This is required to negate the effects of drifts that occur on the network.
 
 
+Ethernet provides an unreliable service to the network layer, as it does not acknowledge the result of the CRC check. When the frame fails the CRC check, it simply discards that frame, and the sending adapter has no idea whether the transmitted frame has reached the destination or not. This gap in data is handled by the upper Transport Layer protcols and not by the Ethernet.
+
+A repeater is a physical layer device that receives a signal on the input side and regenerates the signal on the output side, to increase the range of Ethernet.
+
+The Gigabit Ethernet is an extension to the highly successful 10 Mbps and 100 Mpbs Ethernet standards. It's key features are:
+1. Uses the standard Ethernet frame format
+2. Allows for point-to-point links as well as shared broadcast channels
+3. Uses CSMA/CD for shared broadcast (distance restricted for acceptable efficiency)
+4. Allows full duplex operation at 1000 Mbps for P2P channels.
+
+###  Link Layer Switches
+
+The role of a switch is to receive incoming link layer frames and forward them to outgoing links. The switch is transparent to the hosts and routers in the subnet. Switch output interfaces have buffers to allow frames to be stored if the capacity of the link is being exceeded.
+
+#### Forwarding and Filtering
+
+Filtering is the switch function that determines whether a frame should be forwarded or dropped. Forwarding is the function that determines the interfaces to which a frame should be directed, and then move the frame to those interfaces. Switch filtering and forwarding are done with a switch table. An entry in the switch table contains the MAC address, the switch interface and the time at which the entry was placed into the table.
+
+For a given destination address D of a frame arriving at a switch at interface x, there can be 3 possibilities
+1. There is no entry for D. In this case, the switch forward copies of the frames to the output buffers preceding all interfaces except x. (Broadcast)
+2. There is an entry for D, associating D with x. Perform filtering by dropping this frame.
+3. There is an entry for D, associating D with y. Perform forwarding to output buffer of y.
+
+#### Self Learning
+The table of a switch is built automatically, dynamically and autonomously. This is accomplished as:
+1. The switch table is initially empty.
+2. For each incoming frame received, the switch stores in its table the MAC address from the source address field, the interface from which the frame is arriving and the current time. 
+3. The switch deletes an address in the table if no frames are received from that address after some period of time, called the aging time.
+
+Switches are plug-and-play devices for this reason.
+
+#### Properties of Link Layer Switching
+
+1. Elimination of collisions 
+   1. No wasted bandwidth
+   2. Switches buffer frames and never transmit more than one frame segment at a time
+   3. Maximum aggregate throughput is the sum of all the switch interface rates
+   4. Significant performance improvement over LANs with broadcast links
+2. Heterogenous links
+   1. Isolation of links from one another
+   2. Allows LAN to operate at different speeds over different media
+3. Management
+   1. Eases network management
+   2. Cuts non-working hosts off the network
+
+#### Switches vs Routers
+
+Router is a layer-3 packet switch, whereas a switch is a layer-2 packet switch.
+
+Pros of switches:
+1. Plug-and-play
+2. High filtering and forwarding rates
+
+Cons of switches:
+1. To prevent cycling of broadcast frames, the active topology of a switch is restricted to a spanning tree.
+2. Requires large ARP tables for large switched networks and generates a lot of ARP traffic and processing
+3. Susceptible to broadcast storms - if one host transmits endlessly, network will collapse.
+
+
+Pros of routers:
+1. No cycles through routers as addressing is heirarchical, can only cycle when misconfigured
+2. Can support mutiple topologies
+3. More robust isolation of traffic 
+
+Cons of routers:
+1. Not plug-and-play
+2. Larger per-packet processing
+
+### Virtual Local Area Networks
+
+#### Drawbacks of switched LANs
+1. Lack of traffic isolation
+   1. Frames whose destinations are not yet self-learned need to traverse through the whole institutional network.
+2. Inefficient use of switches
+3. Managing users
+
+A switch that supports Virtual Local Area Networks allows multiple virtual LANs to be defined over a single physical LAN infrastructure. Hosts within a VLAN can communicate with each other as if they are connected to the same switch. 
+
+In a port based VLAN, the switch's interfaces are divided into groups, where each group constitutes a VLAN, with the ports in each VLAN forming a broadcast domain. 
+
+Two VLANs can communicate with a VLAN switch port connected to an external router and configuring that port to belong to both the VLANs.
+
+For more such networks, this option is not scalable. So VLAN switches are interconnected, called VLAN trunking. A special port on each VLAN switch is configured as a trunk port to interconnect the two VLAN switches. The trunk port belongs to all VLANs, and frames sent to any VLAN are forwarded over the trunk link to the other switch. The VLAN tag specifies the origin of the frame. 
+
+
