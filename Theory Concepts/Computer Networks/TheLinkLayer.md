@@ -14,6 +14,7 @@ There are two fundamentally different types of link-layer channels
 
 
 Node: Any device that runs a link-layer protocol
+
 Links: Communication channels that connect adjacent nodes
 
 In order for a datagram to be transferred, it must move over individual links in the end-to-end path.
