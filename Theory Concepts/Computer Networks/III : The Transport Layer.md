@@ -238,3 +238,34 @@ UDP does not provide flow control.
 
 ### TCP Congestion Control
 
+TCP uses end-to-end connection, since the IP layer provides no feedback to the end systems regarding congestion on the network. Each sender limits its rate of sending data as a function of perceived network congestion. If congestion is less, more data is sent, and vice versa.
+
+TCP congestion control is operated at a sender where the sender keeps a congestion window variable cwnd and a receiver window variable rwnd, which constrain the rate of sending as
+
+LastByteSent - LastByteReceived <= min {cwnd, rwnd}
+
+The sender's rate is roughly cwnd / RTT bps. By adjusting the cwnd, the sender can adjust the rate at which it sends data to the connection. A loss event is defined either as a timeout or 3 duplicate acknowledgements received.
+
+Because TCP uses acknowledgements to trigger its increase in congestion window size, it is known as a self-clocking protocol.
+
+The following principles are maintained for congestion control
+1. A lost segment implies congestion, hence, the TCP sender rate must decrease when a segment is lost
+2. An acknowledged segment indicates the network is delivering the segments, so increase the sending rate
+3. Bandwidth probing: Increase the rate of response to arriving ACKs until a loss event occurs, at which the rate decreases. It probes for a rate at which congestion onset begins, backs off from that rate and then probes again to see if congestion rate has been changed.
+
+The TCP congestion control algorithm has 3 components
+1. Slow Start
+   1. Initialise the value of cwnd to a small value of 1 MSS
+   2. Since the capacity of the link is high, the bandwidth will be found much faster
+   3. Increase MSS by 1 everytime a transmitted segment is acknowledged
+   4. If loss event occurs, set cwnd to 1 and start slow start again
+   5. Another variable ssthresh is set to cwnd / 2, and if ssthresh = cwnd, slow start ends and TCP switches to congestion avoidance mode
+   6. If 3 duplicate ACKs are encountered, a fast retransmit is performed and TCP goes into fast recovery
+2. Congestion Avoidance
+   1. Increase cwnd by MSS till timeout occurs or triple ACKs occur
+   2. Record ssthresh to half of cwnd and switch to fast recovery
+3. Fast Recovery
+   1. Increase cwnd by 1 MSS for every duplicate ACK received for the missing segment
+   2. When ACK arrives for received segment, TCP goes into congestion avoidance by deflating cwnd.
+   3. If timeout occurs, go to slow start.
+
