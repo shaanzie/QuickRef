@@ -114,3 +114,226 @@ Each multiple access protocol needs to have the following characteristics
 3. The protocol is decentralised.
 4. The protocol is simple and easy to implement.
 
+### Channel Partitioning Protocols
+
+Time Division Multiplexing and Frequency Division Multiplexing are two techniques that can be used to partition a broadcast channel's bandwidth among all nodes sharing the channel. 
+
+#### Time Division Multiplexing
+
+TDM divides the channel into time frames and further divides each frame into time slots. Each time slot is then assigned to one of the N nodes. Whenever a node has a packet to send, it transmits the packet's bits during its assigned time slot in the revolving TDM frame. Slot sizes are chosen such that a single packet can be transmitted in a slot time.
+
+#### Frequency Division Multiplexing
+
+FDM divides the R bps channel into different frequencies (each with a bandwidth of R/N bps) and assigns each frequency to one of the N nodes. It thus creates N smaller channels transmitting at R/N bps out of the single R bps channel. It shares the same drawbacks and advantages of TDM.
+
+TDM and FDM are appealing because
+1. It eliminates collision
+2. It is perfectly fair
+
+Each node gets a dedicated R/N bps during each time frame.
+
+Drawbacks of TDM and FDM are
+1. A node is limited to an average rate of R/N bps even if its the only node sending data.
+2. A node must always wait for its turn in the transmission sequence, even if its the only node sending data.
+
+#### Code Division Multiple Access
+
+CDMA assigns a different code to each node. Each node then uses its unique code to encode the data bits it sends. If the coding is done properly, different nodes can transmit simultaenously and yet receive the correct data, in spite of interfering transmissions.
+
+### Random Access Protocols
+
+In a random access protocol, a transmitting node always transmits at the full rate of the channel. When there is a collision, the node involved in the collision repeatedly retransmits its frame until the frame gets through without a collision.
+
+The retranmission during collision occurs after a delay, with the delay period being random, which allows nodes to pick a delay that is sufficiently less than the delays of the other colliding nodes, and can sneak its frame into the channel without collision. 
+
+#### Slotted ALOHA
+
+##### Key assumptions
+
+1. All frames consist of exactly L bits
+2. Time is divided into slots of size L/R seconds 
+3. Nodes start to transmit frames only at the beginning of the slots
+4. The nodes are synchronized so that each nodes knows when the slots begin
+5. If two or more frames collide in a slot, then all the nodes detect the collision event before the slot ends
+
+##### Operation
+
+1. When a node has a fresh frame to send, it waits until the beginning of the next slot and transmits the entire frame in the slot.
+2. If there isnt a collision, the node has successfully transmitted its frame and does not retransmit.
+3. If there is a collision, the node detects the collision before the end of the slot. The node retransmits its frame in each subsequent slot with some probability p until the frame is transmitted without collision. (All the nodes calculate p independently).
+
+##### Advantages
+
+1. Allows a node to constantly transmit at full rate, when the node is the only active node.
+2. Highly decentralized, as each node independently decides whether to retransmit or not
+3. It is extremely simple
+
+##### Efficiency concerns
+
+1. When there are multiple active nodes, a certain fraction of the slots will have collisions and will therefore, be wasted.
+2. Another fraction of the slots would be empty, because all the active nodes would refrain from transmitting.
+
+A slot in which exactly one node transmits is said to be a successful slot.
+The efficiency of a slotted multiple access protocol is defined to be the long-run fraction of successful slots when the number of active nodes is large, and each having a large number of frames to send.
+
+##### Deriving maximum efficiency
+
+Assumptions: 
+1. Each node always has a frame to transmit with a probability p per slot.
+2. There are N nodes in the network.
+
+Probability that a given slot is successful = Probability that one of the nodes transmits and N - 1 nodes do not transmit.
+
+Probability that a node transmits = p
+Probability that N - 1 nodes don't transmit = ( 1 - p ) ^ ( N - 1 )
+
+Probability a given node has success is p(1-p)^(N-1).
+
+Because there are N nodes, the probability that any one of the N nodes has a success is N * p * (1 - p) ^ (N - 1)
+
+To obtain the maximum efficiency for N active nodes, we have to find p* that maximises this expression. For this, the limits are taken on Np*(1-p*)^(N-1) as N approaches infinity. The maximum efficiency of the protocol is given by 1/e = 0.37. That is, the effective channel bandwidth is only 0.37 R bps, which is not very efficient.
+
+#### ALOHA (Unslotted)
+
+In pure ALOHA, when a frame first arrives, the node immediately transmits the frame in its entirety to the broadcast channel. If a transmitted frame experiences collision with one or more other transmissions, the node will then immediately retransmits with probability p. Otherwise, the node waits for a frame transmission time. After this wait, it then retransmits the frame with probability p, or waits for another frame time with probability 1-p.
+
+##### Deriving maximum efficiency
+
+The same assumptions as slotted ALOHA are made here and take the frame transmission time as the unit of time.
+
+Suppose a node begins transmission at a time t. In order for transmission to be successful, no other nodes can begin transmission in (t - 1, t).
+The probability that no node transmits in that time is (1 - p)^(N-1). Similarly, no node can begin tranmsmission when node i is transmitting. 
+This probability is (1-p)^(N-1). 
+So the probability that a given node has successful transmission is p(1-p)^(2 * (N - 1)).
+
+This gives an efficiency of 1/2e, half of that of slotted ALOHA.
+
+#### Carrier Sense Multiple Access (CSMA) and CSMA with collision detection(CSMA/CD)
+
+The two main ideas that CSMA and CSMA/CD build upon are
+1. Carrier sensing - listen to a channel before transmitting and transmit when no other transmissions occur
+2. Collision detection - if interference occurs, the node stops transmitting and waits a random amount of time before repeating the sense-and-retransmit.
+
+The operation of an adapter in a node attatched to a broadcast channel is summarized as
+1. Obtain datagram from network layer, prepare link layer frame and put the frame adapter buffer.
+2. If channel is idle, start to transmit the frame. If not, wait till no signal energy is observed.
+3. While transmitting, monitor the presence of signal energy from other adapters on the channel.
+4. If no signal energy is observed, finish transmit. If signal energy is detected, abort the transmission.
+5. Wait for random amount of time after abort, then return to step 2.
+
+The time for wait is random because if the time was fixed, the collision would happen again after the fixed time. 
+
+Tradeoffs to choose the random interval
+1. If the interval is large and the number of colliding nodes are small, nodes have to wait a large amount of time before repeating sense-and-transmit-when-idle.
+2. If the interval is small and the number of colliding nodes are large, the random values might be close or same, causing collisions again.
+
+The requirement thus is to have an interval that is short when number of collisions is small, and large when number of collisions is large.
+
+The binary exponential backoff algorithm used in Ethernet and DOCSIS solves this.
+
+In binary exponential backoff, the node chooses a value of K at random from 0 to 2 ^ (n - 1) where n is the number of colliding nodes. 
+This allows the interval to be large when collisions are large and small when the collisions are small.
+
+##### Efficiency
+
+When only one node is transmitting, the full bandwidth of the channel is used. When there are multiple nodes, however, the channel efficiency decreases. A closed form approximation for the efficiency is,
+Let prop_d denote the maximum time it takes signal energy to propogate between two adapters.
+Let trans_d denote the time to transmit a maximum size frame.
+
+Then, efficiency is given by 1 / ( 1 + (5*prop_d) / trans_d).
+
+### Taking-turns protocols
+
+These protocols were made because the previous ones did not guarantee a transmission rate of R/M bps for M simultaenousy transmitting nodes.
+
+#### Polling protocol
+
+The polling protocol requires one of the nodes to be the master node. The master node polls each of the nodes in a round robin fashion. Each node being polled by the master can send some amount of frames. This eliminates collisions and empty slots, and achieves a higher efficiency. 
+
+Drawbacks:
+1. Introduces polling delay, the time to notify a node that it can transmit.
+2. If master node fails, entire channel becomes inoperative.
+
+#### Token Passing protocol
+
+In this, there is no master node. A special purpose frame called a token is exchanged among nodes in a fixed order. When a node receives a token, it holds onto the token only if it has some frames to transmit when it receives the token, otherwise it forwards the token to the next node.
+
+Drawbacks:
+1. Failure of one node can crash the channel.
+2. If a node does not release the token, recovery options need to be invoked to get the token back.
+
+### DOCSIS : Link Layer Protocol for Cable Internet Access
+
+The Data-Over-Cable Service Interface Specifications (DOCSIS) specifies the cable data network architecture and its protocols. DOCSIS uses FDM to divide the downstream (CMTS to modem) and upstream (modem to CMTS) network segments into multiple frequency channels.
+
+Frames transmitted on the downstream channel by the CMTS are received by all cable models receiving that channel, since there is just a single CMTS transmitting on the downstream channel. There is no multiple access problem there.
+On the upstream channel however, multipl32 cable modems share the same upstream channel frequency to the CMTS, which can cause collisions.
+
+Each upstream channel is divided into intervals of time, each containing a sequence of mini slots during which the cable modems can transmit to the CMTS. The CMTS explicitly grants permissions to individual modems to transmit during specific mini-slots. The CMTS accomplishes this by sending a control message called MAP on a downstream channel to specify which cable modem can transmit during which mini-slot for the interval of time specified in the control message. CMTS hence, can assure that no colliding transmissions occur during a mini slot.
+
+The CMTS knows which cable modems have data to send by having cable modems send mini-slot request frames to the CMTS during a special set of mini-slots alloted. These mini-slot-request frames are transmitted at random and so may collide with each other. The cable modem infers that its mini-slot-request frame experienced a collision if it did not receive a response to the requested allocation in the next downstream control message. When collision is encountered, binary exponential backoff is used to defer the retransmission of its mini-slot-request frame to a future time slot. When there is less traffic, this retransmission occurs nominally.
+
+## Switched Local Area Networks
+
+### Link Layer Adressing and ARP
+
+The network interfaces at each host and router have a seperate link layer address associated with them. So a host or a router can have multiple link layer addresses, but link layer switches do not have link layer addresses associated with them. The link layer address is called a LAN address, a physical address or a MAC address. 
+
+No two adapters have the same MAC address. 
+
+An adapter's MAC address has a flat structure and does not change based on the location of the adapter. 
+
+When a frame needs to be sent to some destination adapter, the sending adapter inserts the destination adapter's MAC address into the frame and sends the frame into the LAN. The adapter may receive frames not addressed to it, so it checks whether its MAC address matches the one in the frame. 
+
+When data needs to be sent to all the network devices on a network, it is sent with a special MAC broadcast address in the destination address field, and is usually a string of 48 consecutive 1s. (FF-FF-FF-FF-FF-FF)
+
+The Address Resolution Protocol (ARP) translates network layer addresses to link layer addresses. An ARP module in the sending host takes any IP address on the same LAN as input and returns the corresponding MAC address. It is similar to the DNS, but the key difference is that DNS resolves host names for hosts anywhere on the net, but ARP resolves host addresses only for interfaces on the same subnet. 
+
+Each host and a router has an ARP table in its memory, which contains mappings of IP addresses to MAC addresses. It also contains the TTL value which indicates when this mapping will be deleted.
+
+To fill the entries of the ARP table, the sender constructs a special ARP packet, whihc has several fields, including the sending and receiving IP and MAC addresses. Both the query and response have the same format, and this packet queries all the hosts and routers on the subnet to determine their IP addresses.
+
+Features of the ARP:
+1. Query ARP message is sent within a broadcast frame, whereas the response is sent through a standard frame. 
+2. ARP is plug-and-play, and does not need to be configured by a system admin.
+3. If a host disconnects from a subnet, the ARP entry also gets deleted.
+
+To send data accross subnets, the routers also have ARP tables, and the number of ARP modules depend on the number of interfaces the router is connected to. 
+
+### Ethernet
+
+#### Why Ethernet succeeded
+1. First widelty deployed high-speed LAN.
+2. Token ring, FDDI, ATM, etc were more complex and expensive
+3. Higher data rate, with the advent of switched Ethernet
+4. Hardware cheap and readily available
+
+A hub is a physical layer device that acts on individual bits rather than frames. LANs were switched to Ethernet installations using these hubs in a star topology. A hub simply recreates an arriving bit, boosts its energy strength, and transmits the bit onto other interfaces. Later, hubs were replaced with switches.
+
+#### Frame Structure
+
+1. Data field (46 - 1500 bytes) 
+
+    Field carries the IP datagram. The MTU of Ethernet is 1500 bytes, and the minimum size is 46 bytes, which means that if an IP datagram size is lesser than 46 bytes, it will be stuffed to fill out the 46 bytes. The network layer uses the length field in the IP datagram header to remove the stuffing.
+
+2. Destination address (6 bytes)
+
+    MAC address of the destination adapter. 
+
+3. Source address (6 bytes)
+
+    MAC address of the source adapter.
+
+4. Type field (2 bytes)
+
+    Permits ethernet to multiplex network-layer protocols. Since different network layer protocols can be used, it should know which protocol is the one used in that specific datagram transfer.
+
+5. Cyclic Redundancy Check (4 bytes)
+
+    Detect bit errors.
+
+6. Preamble (8 bytes)
+
+    Each of the first 7 bytes of the preamble has a value 10101010, and the last byte is 10101011. This is to wake up the receiving adapters and to synchronize the clocks to the sender's clock. This is required to negate the effects of drifts that occur on the network.
+
+
