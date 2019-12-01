@@ -414,6 +414,8 @@ Cons of routers:
 2. Inefficient use of switches
 3. Managing users
 
+#### VLAN Usage
+
 A switch that supports Virtual Local Area Networks allows multiple virtual LANs to be defined over a single physical LAN infrastructure. Hosts within a VLAN can communicate with each other as if they are connected to the same switch. 
 
 In a port based VLAN, the switch's interfaces are divided into groups, where each group constitutes a VLAN, with the ports in each VLAN forming a broadcast domain. 
