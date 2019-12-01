@@ -132,11 +132,13 @@ There are two ways of performing a lookup into the DNS heirarchy.
 1. Iterative
 
     Host -> Local DNS -> Root -> Local DNS -> TLD -> Local DNS -> Authoritative -> Local DNS -> Host
+    
     If the entry is already in the local DNS, then it is returned there itself.
 
 2. Recursive
 
     Host -> Local DNS -> Root -> TLD -> Authoritative
+    
     This recurses back in the same manner to the host.
 
 In DNS caching, for a query chain, when the DNS server receives a DNS reply, it can cache the mapping in memory, by using this local DNS server and bypass the root DNS.
