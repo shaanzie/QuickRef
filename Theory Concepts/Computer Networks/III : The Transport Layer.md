@@ -178,3 +178,63 @@ When packets are lost, the receiver buffer leaves gaps for these packets which s
 The sequence numbers can be initialised at random, to avoid new packets being referenced to previous connection paradigms.
 
 The transfer of acknowledgement with server to client data is known as piggybacking.
+
+### Estimating RTT
+
+The sample RTT for a segment is the amount of time between when a segment is sent and when the acknowledgement is received. The sample RTT is not recalculated again for retransmissions.
+
+To handle fluctuations in the RTT due to congestion, a typical RTT is estimated by
+
+EstimatedRTT = ( 1 - alpha ) * EstimatedRTT + alpha * SampleRTT where alpha is usually 0.125.
+
+The variability in the RTT is measured by 
+
+DevRTT = (1 - beta) * DevRTT + beta * | SampleRTT - EstimatedRTT|
+
+The timeout interval must be estimated to be greater than or equal to the estimated RTT, but not too great so as to lead to transmission delays. 
+
+TimeoutInterval = 4 * DevRTT + EstimatedRTT
+
+When a timeout occurs, the value of this interval is doubled to avoid premature timeouts for a subsequent segment that will soon be acknowledged. 
+
+### Reliable Data Transfer
+
+Timer management also adds a significant overhead, so TCP uses only a single timer. 
+
+To reduce longer timeout periods, duplicate acknowledgements are sent, where a segment sent is reackowledged. When gaps are detected, the reacknowledged segment is the last in-order byte received. If one segment is lost, there will be back-to-back duplicate ACKs. If the TCP sender receives 3 duplicate ACKs for the same data, that means the data following this segment has been lost.
+TCP does a fast retransmit in this case, retransmitting the segment before that segment's timer expires.
+
+Hence, TCP is a selective acknowledgement retransmitter, a hybrid of GBN and SR.
+
+### Flow Control
+
+Flow control is required to counteract data overflows in data received. TCP provides flow control by having the sender maintain a variable called receive window, which tells the sender how much space does a receiver's buffer have.
+
+The last byte read is the number of the last byte in the data stream read from the buffer in the receiver. The last byte received is the number of the last byte in the datastream that has arrived from the network and has been placed in the receiver buffer. 
+
+TCP checks if LastByteReceived - LastByteRead <= ReceiverBuffer
+
+and
+
+ReceiverWindow = ReceiverBuffer - [LastByteReceived - LastByteRead]
+
+The current value of the receiver window is placed in the TCP receive window field.
+
+On the receiver side, the window is maintained as
+
+ReceiverWindow = ReceiverBuffer - [LastByteReceived - LastByteACKed]
+
+When the window is empty, the receiver does not send anything, blocking the sender. This is countered by making the sender continously poll the receiver to check if the window is opened. 
+
+UDP does not provide flow control.
+
+### TCP Connection Management
+
+1. Client side sends a special TCP segment with no app layer data. SYN bit is set to 1, and hence, this segment is called a SYN segment. The initial segment number is set randomly and encapsulated within an IP datagram.
+2. At the server, the server extracts the TCP SYN and allocates the required buffers and variables to that connection, and sends a connection granted segment SYNACK, with SYN = 1 and ACK set to the next sequence number.
+3. Upon SYNACK, the client allocates buffers and sends the payload with SYN = 0, abd the ACK field as the next sequence number.
+4. When the connection is closed, a FIN bit is sent, and the server sends an ACK with the FIN bit set as well.
+5. If a wrong port is requested, the RST bit is set and the connection has to reset.
+
+### TCP Congestion Control
+
