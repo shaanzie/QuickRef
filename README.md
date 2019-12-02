@@ -14,5 +14,5 @@ Frameworks:
 Concepts:
 1. Computer Networks
    1. <a href = "https://www.pearson.com/us/higher-education/program/Kurose-Computer-Networking-A-Top-Down-Approach-7th-Edition/PGM1101673.html">Computer Networking: A Top Down approach</a>
-   2. <a href = "https://www.mhhe.com/engcs/compsci/forouzan/">“Data Communications and
+   2. <a href = "https://www.mhhe.com/engcs/compsci/forouzan/">Data Communications and
     Networking</a>
