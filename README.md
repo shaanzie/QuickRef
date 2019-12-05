@@ -16,3 +16,5 @@ Concepts:
    1. <a href = "https://www.pearson.com/us/higher-education/program/Kurose-Computer-Networking-A-Top-Down-Approach-7th-Edition/PGM1101673.html">Computer Networking: A Top Down approach</a>
    2. <a href = "https://www.mhhe.com/engcs/compsci/forouzan/">Data Communications and
     Networking</a>
+2. Machine Learning
+   1. <a href = "http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html">Machine Learning by Tom Mitchell</a>
