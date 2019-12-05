@@ -164,7 +164,7 @@ Propogation delay is the time taken to reach the destination router from when th
 
 Nodal delay is given as the sum of all these delays.
 
-Traffic intensity on a link is defined as La/R where a denotes the average rate of packet arrival. Average queuing delay follows an 1/x distribution with traffic intensity, i.e, delay reaches infinite when traffic intensity > 1. The fraction of lost packets increases with increase in traffic intensity as well.
+Traffic intensity on a link is defined as La/R where a denotes the average rate of packet arrival. Average queuing delay follows an exponential distribution with traffic intensity, i.e, delay reaches infinite when traffic intensity > 1. The fraction of lost packets increases with increase in traffic intensity as well.
 
 For N-1 routers, the total end-to-end delay is given by N * (processing delay + transmission delay + propogation delay).
 

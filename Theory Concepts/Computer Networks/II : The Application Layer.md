@@ -4,7 +4,7 @@
 
 ### Network Application Architectures
 
-In a client server architecture, there is an always-on-host, called the server, which services requests from many other hosts, called clients. In a P2P architecture, tjere is minimal or no reliance on dedicated servers. Instead, the application exploits direct communication between pairs of intermittently connected hosts, called peers.
+In a client server architecture, there is an always-on-host, called the server, which services requests from many other hosts, called clients. In a P2P architecture, there is minimal or no reliance on dedicated servers. Instead, the application exploits direct communication between pairs of intermittently connected hosts, called peers.
 
 P2P architectures are self scalable and cost effective but,
 1. Not ISP friendly (asymmetrical bandwidth usage)
@@ -14,7 +14,6 @@ P2P architectures are self scalable and cost effective but,
 ### Processes Communicating
 
 Processes on two systems communicate using messages accross the network. The software interface from which messages are sent/received are called sockets. 
-
 The only control that the application layer has with the transport is the protocol to use and the parameters to be modified.
 
 To identify receiving processes, the address of the host and the IP of the receiver must be sent.
