@@ -1,6 +1,6 @@
 # Quick References to Widely Used Frameworks and Concepts
 
-This repository is still under development, but it's main purpose is to provide a a quick revision into existing frameworks and concepts that are widely used in applications.
+This repository is still under development, but it's main purpose is to provide a quick peek into existing frameworks and concepts that are widely used in applications. Please do note that these files contain just a glimpse into the actual content out there. Please refer to the links provided for detailed explanations on the same. The links provided are the sources of the content and these notes just summarize the key concepts in the same.
 
 Frameworks: 
 1. Docker and Docker Swarm
