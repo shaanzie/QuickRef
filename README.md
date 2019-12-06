@@ -20,4 +20,4 @@ Concepts:
    1. <a href = "http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html">Machine Learning by Tom Mitchell</a>
 3. Operating Systems
    1. <a href = "https://www.amazon.in/Operating-System-Concepts-Silberschatz/dp/8126554274">Operating Systems Concepts</a>
-   2. <a href = "http://pages.cs.wisc.edu/~remzi/OSTEP/>Operating Systems: Three Easy Pieces</a>
+   2. <a href = "http://pages.cs.wisc.edu/~remzi/OSTEP/">Operating Systems: Three Easy Pieces</a>
