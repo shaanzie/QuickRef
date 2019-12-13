@@ -15,6 +15,7 @@ Frameworks:
    3. <a href = "https://hadoop.apache.org/docs/stable/">Hadoop Documentation</a>
    4. <a href = "https://spark.apache.org/docs/latest/">Spark Documentation</a>
    5. <a href = "https://kafka.apache.org/">Kafka Documentation</a>
+   6. <a href = "https://hive.apache.org/">Hive Documentation</a>
 
 Concepts:
 1. Computer Networks
