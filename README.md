@@ -16,6 +16,7 @@ Frameworks:
    4. <a href = "https://spark.apache.org/docs/latest/">Spark Documentation</a>
    5. <a href = "https://kafka.apache.org/">Kafka Documentation</a>
    6. <a href = "https://hive.apache.org/">Hive Documentation</a>
+   7. <a href = "https://hbase.apache.org/">HBase Documentation</a>
 
 Concepts:
 1. Computer Networks
