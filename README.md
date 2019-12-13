@@ -9,7 +9,12 @@ Frameworks:
 2. Kubernetes
    1. <a href = "https://kubernetes.io/docs/home/">Documentation</a>
    2. <a href = "https://www.youtube.com/watch?v=_vHTaIJm9uY&list=PLF3s2WICJlqOiymMaTLjwwHz-MSVbtJPQ">Introduction to Kubernetes</a>
-
+3. Big Data with the Apache Ecosystem
+   1. <a href = "https://www.oreilly.com/library/view/hadoop-the-definitive/9781491901687/">Hadoop: The Definitive Guide by Tom White</a>
+   2. <a href = "http://www.mmds.org">Mining of Massive Datasets</a>
+   3. <a href = "https://hadoop.apache.org/docs/stable/">Hadoop Documentation</a>
+   4. <a href = "https://spark.apache.org/docs/latest/">Spark Documentation</a>
+   5. <a href = "https://kafka.apache.org/">Kafka Documentation</a>
 
 Concepts:
 1. Computer Networks
@@ -22,3 +27,4 @@ Concepts:
 3. Operating Systems
    1. <a href = "https://www.amazon.in/Operating-System-Concepts-Silberschatz/dp/8126554274">Operating Systems Concepts</a>
    2. <a href = "http://pages.cs.wisc.edu/~remzi/OSTEP/">Operating Systems: Three Easy Pieces</a>
+
