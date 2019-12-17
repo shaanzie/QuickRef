@@ -29,4 +29,6 @@ Concepts:
 3. Operating Systems
    1. <a href = "https://www.amazon.in/Operating-System-Concepts-Silberschatz/dp/8126554274">Operating Systems Concepts</a>
    2. <a href = "http://pages.cs.wisc.edu/~remzi/OSTEP/">Operating Systems: Three Easy Pieces</a>
+4. Data Analytics
+   1. <a href = "https://hanj.cs.illinois.edu/bk3/">Data Mining: Concepts and Techniques</a>
 
