@@ -17,6 +17,9 @@ Frameworks:
    5. <a href = "https://kafka.apache.org/">Kafka Documentation</a>
    6. <a href = "https://hive.apache.org/">Hive Documentation</a>
    7. <a href = "https://hbase.apache.org/">HBase Documentation</a>
+4. Introduction to Golang
+   1. <a href="https://golang.org/doc/">Golang docs</a>
+   2. <a href="https://www.youtube.com/watch?v=YS4e4q9oBaU">FreeCodeCamp's tutorial</a>
 
 Concepts:
 1. Computer Networks
