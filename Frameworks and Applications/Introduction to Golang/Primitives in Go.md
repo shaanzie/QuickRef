@@ -23,7 +23,7 @@ Complex numbers can be used as well in Go, using i as a suffix to the imaginary 
 
 ## String Types
 
-Strings in Go are aliases for bytes, so accessing s[2] gives a uint, and not a character. This also means that s[2] = "u" is an invalid assignment. But concatenation is allowed. This also allows strings to be converted to byte arrays for sending them using compression. 
+Strings in Go are aliases for bytes, so accessing s[2] gives a uint, and not a character. This also means that s[2] = "u" is an invalid assignment. But concatenation is allowed. This also allows strings to be converted to byte arrays for sending them using compression.
 
 ## Rune Types
 
