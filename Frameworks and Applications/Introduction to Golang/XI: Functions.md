@@ -18,3 +18,5 @@ This may, however, lead to undefined behavior in asynchronous code. So to mitiga
 Functions can also be assigned to variables as `var f func() = func() { // statements }`.
 
 Methods are just functions where the function is provided a context to execute in. An example of this is `func (o object) func-name() { // statements }`. This can be invoked by `o.func-name`.
+
+Functions in Go allow automatic promotion from stack memory located variables to main memory variable locations for use of those function-local variable to the outside scopes as well.
