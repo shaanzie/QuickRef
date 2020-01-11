@@ -25,8 +25,7 @@ Frameworks:
    2. <a href = "https://www.youtube.com/watch?v=RLtyhwFtXQA&t=3458s">Good coding tutorial</a>
    
 Paper Summaries
-1. <a href = "
-Link to paper : https://web.stanford.edu/~kozyraki/publications/2013.paragon.asplos.pdf">Paragon : A QoS Aware Scheduler</a>
+1. <a href = "https://web.stanford.edu/~kozyraki/publications/2013.paragon.asplos.pdf">Paragon : A QoS Aware Scheduler</a>
 
 Concepts:
 1. Computer Networks
