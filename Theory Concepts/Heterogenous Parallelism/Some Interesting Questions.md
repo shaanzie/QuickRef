@@ -38,3 +38,12 @@ The scoreboard monitors each instruction waiting to be dispatched. Once it deter
 # What is the difference between dynamic instruction count and static instruction count?
 
 The dynamic instruction count is the actual number of instructions executed by the CPU for a specific program execution, whereas static instruction count is the number of instructions the program has. 
+
+# Parallelise the loop
+
+```
+for(i=3; i < N; i++)
+{
+    a[i] = a[i-3] + c[i];
+}
+```
