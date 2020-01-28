@@ -95,7 +95,7 @@ for(i = 0; i <= 4; i++)
 ```
 
 Array declaration specifies the data space. For example,
-`float Z[50]` declares an array whose elements are indexed by 0,1,....49.
+float Z[50] declares an array whose elements are indexed by 0,1,....49.
 
 We can represent iterations in a d-deep loop mathematically as 
 
