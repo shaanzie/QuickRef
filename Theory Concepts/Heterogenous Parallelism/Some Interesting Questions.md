@@ -75,16 +75,44 @@ for(i = 0; i<m; i++)
 ```
 4. Loop blocking
 ```
+float A[MAX, MAX], B[MAX, MAX];
+
+for (i=0; i< MAX; i+=block_size) 
+{
+    for (j=0; j< MAX; j+=block_size) 
+    {
+        for (ii=i; ii<i+block_size; ii++) 
+        {
+            for (jj=j; jj<j+block_size; jj++) 
+            {
+                A[ii,jj] = A[ii,jj] + B[jj, ii];
+            }
+        }
+    }
+}
 
 ```
 5. Loop unrolling
 ```
-for(i = 0; i<15; i++)
+for(i = 0; i<15; i+=3)
     a[i] = a[i] + 3;
     a[i + 1] = a[i + 1] + 3;
     a[i + 2] = a[i + 2] + 3; 
 ```
 6. Virtual register allocation
 ```
-
 ```
+7. Loop distribution
+```
+```
+8. Scalar Replacement
+```
+```
+9.  Unroll and Jam
+```
+```
+10. Loop peeling
+```
+```
+
+## What will be the point in the iteration space will the GCD exist for a weak SIV test?

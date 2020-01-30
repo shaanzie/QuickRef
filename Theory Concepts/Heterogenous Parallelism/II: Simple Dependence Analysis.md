@@ -25,6 +25,7 @@ S1          A[I + 1, J, K - 1] = A[I, J, K] + 10
 ```
 S1 has a true dependence on itself. The distance vector is given by 
 `(1, 0, -1)` and the direction vector is given by `(<, =, >)`.
+The direction vector has a * when a loop index variable is not involved in a dependence. It is a union of <= and =>.
 
 A dependence cannot exist if it has a direction vector whose leftmost non "=" component is not "<" as this would imply that the sink of the dependence occurs before the source. The reverse may or may not be true.
 
@@ -62,4 +63,69 @@ The type of dependency analysis is defined by the category of the iteration as
 1. ZIV - Zero index variable (Iteration value is constant, no variable)
 2. SIV - Single index variable (1 variable)
 3. MIV - Multiple index variable (Coupled variables)
+
+For example,
+```
+A(5, I + 1, j) = A(1, I, k) + C
+```
+1. The first subscript is ZIV.
+2. The second subscript is SIV.
+3. The third subscript is MIV.
+
+A subscript is separable if its indices do not occur in any other subscripts. Otherwise, it is called a coupled subscript.
+
+For example,
+```
+A(I + 1, j) = A(k, j) +  C
+```
+Here, both the subscripts are separable.
+And in this example,
+```
+A(I, j, j) = A(I, j, k) + C
+and
+A(I, J, K) = A(I, K, J) + C
+```
+The second and third subscripts are coupled.
+
+This is done because coupling can cause imprecision in dependence testing.
+
+Dependence testing is done in the following steps overall:
+1. Partition subscripts of a pair of array references into separable or coupled groups.
+2. Classify them as ZIV, SIV or MIV
+3. Apply single subscript tests
+   1. ZIV Test
+   2. SIV Test
+      1. Strong SIV
+      2. Weak SIV
+         1. Weak-zero SIV
+         2. Weak crossing SIV
+   3. SIV Tests in complex iteration spaces
+
+### ZIV Test
+
+A ZIV test is given by
+```
+    DO j = 1, 100
+S       A(e1) = A(e2) + B(j)
+    END
+```
+e1 and e2 are constants or loop invariant symbols. If (e1-e2) != 0, no dependence exists.
+
+### Strong SIV Test
+
+Strong SIV subscripts are of the form <ai + c<sub>1</sub>, ai + c<sub>2</sub>>.
+For example, some strong SIV subscripts are <i + 1, i> and <4i + 2, 4i + 4>.
+
+We calculate d = (c<sub>1</sub> - c<sub>2</sub>) / a and if the |d| <= U - L, dependence exists, where U and L are the upper and lower limits of the loop.
+
+### Weak SIV Tests
+
+Weak SIV subscripts are of the form <a<sub>1</sub>i + c<sub>1</sub>, a<sub>2</sub>i + c<sub>2</sub>>.
+For example, some weak SIV subscripts are <i + 1, 2i + 2> and <4i + 3, 2i + 7>.
+
+For this, we say for
+
+a<sub>1</sub>i - a<sub>2</sub>i = c<sub>2</sub> - c<sub>1</sub>,
+
+If the gcd(a<sub>1</sub>, a<sub>2</sub>) divides c<sub>2</sub> - c<sub>1</sub> and the quotient falls between U and L, then a dependency exists.
 
