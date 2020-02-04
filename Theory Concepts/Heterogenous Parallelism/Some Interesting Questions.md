@@ -104,15 +104,43 @@ for(i = 0; i<15; i+=3)
 ```
 7. Loop distribution
 ```
+for(i = 0; i<n; i++)
+    A[i] = B[i] + 5
+for(i = 0; i<m; i++)
+    B[i] = B[i-1] + 4
 ```
 8. Scalar Replacement
 ```
 ```
-9.  Unroll and Jam
-```
-```
 10. Loop peeling
 ```
+A[0] += 1
+for(i = 1; i<n; i++)
+    A[i] += 1;
 ```
 
 ## What will be the point in the iteration space will the GCD exist for a weak SIV test?
+
+## How do MISD examples work?
+
+## How much speedup does this loop get with autovectorization?
+```
+for(int i = 0; i<256; i++)
+    a[i] = b[i]*c[i];
+```
+Aside:  Try making a, b and c byte arrays.
+
+## The addresses must be aligned to 256 bit boundaries, and if this is not satisfied, there is a performance issues in ARM, but this needs to be checked for x86.
+
+## Doing Addition is free, in double precision. Why?
+
+## Vectorize this code
+```
+for(int i = 0; i<N; i++)
+{
+    if(i%2)
+        a[i] = b[i] + c[i];
+    else
+        a[i] = b[i] - c[i];
+}
+```

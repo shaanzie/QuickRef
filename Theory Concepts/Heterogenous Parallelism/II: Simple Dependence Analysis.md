@@ -51,7 +51,7 @@ The Delta notation represents the index values at the source and sink. For
 S       A(I + 1) = A(I) + B
     ENDDO
 ```
-1. The iteration at source is I(0).
+1. The iteration at source is I(0). 
 2. The iteration at sink is I(0) + del*I
 3. Forming an equality gets us I(0) + 1 = I(0) + del*I
 
