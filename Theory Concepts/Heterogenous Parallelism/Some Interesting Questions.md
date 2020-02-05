@@ -121,7 +121,40 @@ for(i = 1; i<n; i++)
 
 ## What will be the point in the iteration space will the GCD exist for a weak SIV test?
 
+
+
 ## How do MISD examples work?
+
+```
+
+2: j=0
+3: PUT(s) 
+4: repeat
+5:      PUT(1) 
+6:      cur=GET() 
+7:      PUT(cur.KEY) 
+8:      PUT((cur.DATA, 0))
+9:      t=GET() 
+10:     A = t.KEY.|Adj[u]|
+11:     for i=1 to A do
+12:         PUT(0) 
+13:         PUT(t.KEY,i)
+14:         v=GET() 
+15:         if v.DATA. f lag == 0 then
+16:             PUT(0) 
+17:             j= j+1
+18:             PUT(j)
+19:             PUT(v.KEY) 
+20:             PUT(v.KEY,0)
+21:             PUT(0,1) 
+22:         else
+23:             PUT(1)
+24:         end if
+25:     end for 
+26: PUT(1)
+27: until GET() = 0 
+28: PUT(0)
+```
 
 ## How much speedup does this loop get with autovectorization?
 ```
@@ -130,9 +163,15 @@ for(int i = 0; i<256; i++)
 ```
 Aside:  Try making a, b and c byte arrays.
 
+A: 18 times speedup
+
 ## The addresses must be aligned to 256 bit boundaries, and if this is not satisfied, there is a performance issues in ARM, but this needs to be checked for x86.
 
+CPU does not read from or write to memory one byte at a time. Instead, CPU accesses memory in 2, 4, 8, 16, or 32 byte chunks at a time. The reason for doing this is the performance - accessing an address on 4-byte or 16-byte boundary is a lot faster than accessing an address on 1-byte boundary.
+
 ## Doing Addition is free, in double precision. Why?
+
+ If you are developing for the x86 architecture, and you need extra performance, you might want to look into using the SSE extensions. This can greatly speed up single-precision floating point arithmetic, as the same operation can be performed on multiple data at once, plus there is a separate* bank of registers for the SSE operations. 
 
 ## Vectorize this code
 ```
@@ -144,3 +183,4 @@ for(int i = 0; i<N; i++)
         a[i] = b[i] - c[i];
 }
 ```
+A : Refer to Code Examples

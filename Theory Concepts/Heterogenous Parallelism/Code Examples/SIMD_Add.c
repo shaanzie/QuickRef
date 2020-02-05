@@ -17,13 +17,15 @@ int main()
     
     _time(start);
 
-    for(int i = 0; i<10000; i++)
-    {
-        if(i%2)
-            a[i] = b[i] + c[i];
-        else
-            a[i] = b[i] - c[i];
-    }
+    // for(int i = 0; i<10000; i++)
+    // {
+    //     if(i%2)
+    //         a[i] = b[i] + c[i];
+    //     else
+    //         a[i] = b[i] - c[i];
+    // }
+    for(int i = 0; i<256; i++)
+        a[i] = b[i]*c[i];
     _time(end);
     printf("%lf",time_elapsed(start, end));
     return 0;
