@@ -184,3 +184,5 @@ for(int i = 0; i<N; i++)
 }
 ```
 A : Refer to Code Examples
+
+## Create a thread program that prints treads in order of priorities, both ascending and descending. [Extension : Matrix Multiplication (Multithreaded) or Pi calculation]
