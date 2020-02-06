@@ -102,3 +102,79 @@ If the predicate is true, instruction is kept, else it is nullified.
 Partial predication is when only a few opcodes can be predicated.
 Full predication is when every instruction is predicated.
 
+This is used in cases where branch predictors don't work very well.
+
+Predication converts control dependence to data dependence. For example
+```
+if(C1)
+      S1
+      S3
+      S5
+      S7
+      . 
+      .
+      .
+      SN
+else
+      S2
+      S4
+      S6
+      .
+      .
+      .
+      SN
+```
+is converted to 
+```
+P <- C1
+[P] S1
+[P] S3
+[P] S5
+[P] S7
+.
+.
+.
+[P] SN
+
+[!P] S2
+[!P] S4
+[!P] S6
+.
+.
+.
+[!P] SN
+```
+
+Depending upon the implementation, the instructions may be executed from both sides of the branch into the pipeline. 
+
+If predicated support exists, the hardware ensures that at the writeback stage, only those instructions are committed which need to be executed, based on the predicate.
+
+This is beneficial for vectorisation, and minimising branch misprediction. This also ensures that the pipeline reaches the right state in the end. A branch need not be resolved for the prediction, and if a branch is mispredicted, we don't face any penalty.
+
+The main issues with predication is Interrupt handling. It may cause some exceptions that may occur only because of predication, in an imprecise fashion. This usually happens when extra work is done when it is not necessary.
+
+Once the predicate is resolved, the branch which goes the opposite way stops executing.
+
+Partial predication is done by conditional moves.
+```
+CMOV R1, R2, R3
+```
+This moves R2 to R1 if R3 = 0.
+Select and Nullify can also be used for partial predication.
+
+In Full Predication, all instructions have a predicated version. In this, all registers can be used as predicate register.
+
+## Aligned Access
+
+Aligned access are used for better performance and low exceptions. In this, data is aligned to an n-byte boundary.
+```
+void* _mm_malloc(int size, int n)
+int posix_memaligned( void **p, site_t n, size_t size)
+```
+Aligment is done for variable declarations as
+```
+__attribute__((aligned(n))) var_name
+__declspec(align(n)) var_name
+```
+This is done for vectorization of these variables.
+This is mentioned to the compuler using a #pragma vector aligned directive.
