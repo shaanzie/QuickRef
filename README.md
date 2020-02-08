@@ -41,4 +41,6 @@ Concepts:
 4. Data Analytics
    1. <a href = "https://hanj.cs.illinois.edu/bk3/">Data Mining: Concepts and Techniques</a>
 5. Heterogenous Parallelism
+6. Compiler Design
+   1. <a href = "https://www.amazon.com/Compilers-Principles-Techniques-Tools-2nd/dp/0321486811">Compilers: Principles, Techniques and Tools</a>
 
