@@ -35,7 +35,7 @@ Tomasulo's algorithm for dynamic scheduling uses register renaming to eliminate 
 
 ## What is scoreboarding?
 
-The scoreboard monitors each instruction waiting to be dispatched. Once it determines all the source operands and the required functional units are available, it dispatches the instruction so that it can be executed. However, it is limited as it does not handle WAR and WAW hazards well. 4
+The scoreboard monitors each instruction waiting to be dispatched. Once it determines all the source operands and the required functional units are available, it dispatches the instruction so that it can be executed. However, it is limited as it does not handle WAR and WAW hazards well. 
 
 ## What is the difference between dynamic instruction count and static instruction count?
 
