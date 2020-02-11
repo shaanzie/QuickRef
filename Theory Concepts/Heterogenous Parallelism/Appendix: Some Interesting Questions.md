@@ -188,3 +188,13 @@ A : Refer to Code Examples
 ## Create a thread program that prints treads in order of priorities, both ascending and descending. [Extension : Matrix Multiplication (Multithreaded) or Pi calculation]
 
 Refer to thread_concurrency.c in Code Examples.
+
+## Why does the CT increase when the registers are doubled?
+
+## How do you enable and disable SMT?
+
+## Are there cases where SMT should be disabled?
+
+## What are the overheads of invalidation based cache coherence protocol?
+
+## How can you set the affinities of multi-threading?
