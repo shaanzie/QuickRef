@@ -207,3 +207,38 @@ notsupported: The CPU does not support SMT. You will not be able to write to the
 ## What are the overheads of invalidation based cache coherence protocol?
 
 ## How can you set the affinities of multi-threading?
+
+## Give some examples of
+1. ILP
+```
+load R1 <- R2
+add R3 <- R3, 1
+add R4 <- R4, R2
+add R3 <- R3, 1
+add R4 <- R3, R2
+```
+2. DLP
+```
+func1(data[0:100])
+func1(data[100:300])
+with no data dependency
+```
+3. TLP
+```
+thread1(func1)
+thread2(func2)
+```
+4. PLP (Pipeline level parallelism)
+```
+
+```
+5. LLP (Loop level parallelism)
+```
+for(int i = 0; i<N; i+=2)
+{
+    a[i] = b[i];
+    a[i + 1] = c[i];
+}
+```
+
+## What are precise exceptions and speculation?
