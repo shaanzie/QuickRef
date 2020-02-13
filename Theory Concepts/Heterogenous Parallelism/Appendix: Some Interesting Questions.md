@@ -234,10 +234,9 @@ Execute different pipelines in different stages by setting up buffers
 ```
 5. LLP (Loop level parallelism)
 ```
-for(int i = 0; i<N; i+=2)
+for(int i = 0; i<N; i++)
 {
-    a[i] = b[i];
-    a[i + 1] = c[i];
+    a[i] = b[i] + c[i]
 }
 ```
 
