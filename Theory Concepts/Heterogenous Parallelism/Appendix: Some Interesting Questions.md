@@ -193,6 +193,15 @@ Refer to thread_concurrency.c in Code Examples.
 
 ## How do you enable and disable SMT?
 
+`/sys/devices/system/cpu/smt/control`
+
+This file lets you enable or disable SMT, and shows its state. There are three values:
+
+on: The CPU supports SMT and it is enabled. All logical CPUs can be taken offline or online without restriction.
+off: The CPU supports SMT but it is disabled. Only so-called primary SMT threads can be taken offline/online without restriction. Attempts to put a non-primary sibling thread online will be rejected.
+notsupported: The CPU does not support SMT. You will not be able to write to the control file.
+
+
 ## Are there cases where SMT should be disabled?
 
 ## What are the overheads of invalidation based cache coherence protocol?
