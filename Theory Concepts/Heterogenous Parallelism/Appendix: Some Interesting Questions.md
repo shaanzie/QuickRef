@@ -230,7 +230,7 @@ thread2(func2)
 ```
 4. PLP (Pipeline level parallelism)
 ```
-
+Execute different pipelines in different stages by setting up buffers
 ```
 5. LLP (Loop level parallelism)
 ```
