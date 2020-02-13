@@ -23,9 +23,15 @@ Parallel programs are also affected by the output size, as transferring this out
 
 We use execution time as a performance metric to compare parallel and serial processes, which is the time of start of execution till time of completion.
 
-Total parallel overhead is another metric used.
+Total parallel overhead is another metric used, which is the total time collectively spent by all processing elements over and above that required by the fastest serial algorithm.
 
-Speedup is also used, where it is the ratio of the serial time to parallel time.
+T<sub>o</sub> = pT<sub>p</sub> - T<sub>s</sub>
+
+where pT<sub>p</sub> is the total time spent on a problem over p processors. T<sub>s</sub> is the time spent doing useful work, and T<sub>o</sub> is the overhead.
+
+Speedup is also used, where it is the ratio of the serial time to parallel time. Theoretically, speedup can never exceed the number of processing elements p.
+
+Superlinear speedup occurs when the speedup greater than p is sometimes observed. This happens when the work performed by a serial algorithm is greater than its parallel formulation or due to hardware features that degrade performance.
 
 Efficiency is used, where it is given by the speedup / number of processes, and it is a measure of the fraction of time which a processing element is usefully employed.
 
@@ -33,4 +39,9 @@ The cost of a parallel system is used widely, and it is given by the product of 
 
 A parallel system is said to be cost optimal if the cost of solving a problem on a parallel system is asymptotically better than a serial program.
 
+## The Effect of Granularity on Performance
+
 To improve cost optimality, we add granularity on the performance. A slow down is done, where number of processors is reduced to provide more data elements to these processors.
+
+Using fewer than the maximum possible number of processing elements to execute a parallel algorithm is scaling down. This increases computational granularity, which may or may not be cost optimal.
+
