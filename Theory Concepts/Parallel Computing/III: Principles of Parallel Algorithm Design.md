@@ -67,4 +67,48 @@ There are many ways to partition the data
    1. This can be done only if each output can be naturally computed as a function of the input
    2. Eg: Minimum of numbers
 3. Partitioning both input and output data
-   1. 
+4. Partitioning intermediate data
+   1. Decomposition at an intermediate stage
+
+A decomposition based on partitioning output or input data is also widely referred to as the owner-computes rule. The idea behind the rule is that each partition performs all the computations involving data it owns.
+
+### Exploratory Decomposition
+
+This is used to decompose problems whose underlying computations correspond to a search of space for solutions. The search space is partitioned into smaller parts, and each part is searched concurrently.
+
+### Speculative Decomposition
+
+This is used when a program may take one of the computationally significant branches depending on the output of the other computations that precede it. In this, other tasks that may not take the branch can start executing instructions before the branch is actually evaluated.
+
+### Hybrid Decomposition
+
+The 4 decomposition strategies can also be used in combinations, where different types of decompositions can be applied at different stages.
+
+## Characteristics of Tasks and Interactions
+
+The next step after decomposition is to design an algorithm to map these tasks to available processes.
+
+### Task Characteristics
+
+1. Task generation
+   1. Tasks can be generated statically or dynamically
+   2. Static is where all the tasks are known before execution, and dynamic is during execution
+2. Task Size
+   1. Size of a task is the relative amount of time required to complete it.
+   2. Tasks can be uniform (same time) or non-uniform.
+3. Knowledge of task sizes
+   1. If all the sizes are known, parallelism can be efficient
+4. Size of data associated with tasks
+   1. Data associated with the task must be available to the task.
+
+### Characteristics of Inter-Task Interactions
+
+1. Static or Dynamic
+   1. An interaction pattern is static if the interactions happen at predetermined times and if these times are known. It is dynamic if that happens at runtime.
+   2. Static interactions can be programmed easily in MP, but dynamic is harder. This is because MP requires involvement of both tasks, and dynamic is too unpredictable.
+2. Regular or Irregular
+   1. Regular if interaction has structure, irregular otherwise.
+3. Read-only or Read-write
+   1. In read-only, tasks require only a read-access to the data shared. RW requires both privileges enabled,
+4. One-way or Two-way
+   1. Work needed by a task is explicitly supplied by other tasks in two way. In one way, only one task does all the interaction work.
