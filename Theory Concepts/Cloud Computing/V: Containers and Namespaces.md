@@ -6,7 +6,15 @@ The key objectives of virtualisation are
 2. Resource sharing
    1. Control resources used by another VM
 
-Containers are used to provide lightweight isolation of Guest OSes instead of VMs.
+## Containers
+
+Containers are used to provide lightweight isolation of Guest OSes instead of VMs. They are a type of virtualisation technology that enables the reuse of certain system resources that are not required to be duplicated.
+
+In order to execute the bootloader and operating system in a VM, a VMM sits on top of the Host OS to emulate the hardware. Containers do not run a virtualised OS at all. They just allow limited access to existing kernel, binaries and libraries. The reason they can run in this manner are cgroups and namespaces. 
+
+Namespaces and cgroups help group resources. Namespaces wrap global resources in a layer that allows access to those resources in a manner that separates calls to the resources into groups. Groupings with such an implementation are called cgroups, which are a namespace themselves, specifically handling resource grouping. This allows access to resources within a namespace to be limited to the processes belonging to the cgroup within the namespace.
+
+This allows the ability to share resources without opening up the application's memory space to be read by other processes needing access to the same resource. Containers make an effort to reuse resources rather than duplicate them.
 
 Linux Containers (LXC) are lightweight VMs without a hypervisor, to use the linux kernel. 
 1. Low provision time
@@ -16,6 +24,27 @@ Linux Containers (LXC) are lightweight VMs without a hypervisor, to use the linu
 5. Lightweight
 6. Open source
 7. Supported by any modern linux kernel
+
+## Cgroups
+
+Cgroups allow encapsulation of resources for process resource management. Their main functionalities are
+1. Access - which devices can be used per cgroup
+2. Resource limiting
+3. Prioritization
+4. Accounting - resource usage per cgroup
+5. Control - freezing and checkpointing
+6. Injection - packet tagging
+
+Cgroups are heirarchically structured, where tasks are assigned to them. Each cgroup has a resource limitation. We can limit 
+1. Memory
+2. CPU
+3. Block IO
+4. Devices
+5. Network
+
+Forked children of processes retain the cgroup of the parent, allowing the parent to service additional requests.
+
+## Namespaces
 
 All the resources a process can see is called a namespace. This helps restrict objects processable in the container.
 
