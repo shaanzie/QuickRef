@@ -18,3 +18,6 @@ We say LR(1) item [A -> a.b, c] is valid for a prefix p, if there is a derivatio
 
 ## Constructing LR(1) Sets of Items
 
+To build the collection of LR(1) set of items, its the same principle as the canonical collection of sets of LR(0) items. But in this, we consider a lookahead, and is the first of the symbol following the production the rule that derives it.
+
+LALR parsing tables just combine sets of LR(1) items that do not differ in LR(0) itemsets, to make parsing more efficient by reducing the number of sets of elements to validate.
