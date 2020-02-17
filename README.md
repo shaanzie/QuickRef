@@ -43,4 +43,8 @@ Concepts:
 5. Heterogenous Parallelism
 6. Compiler Design
    1. <a href = "https://www.amazon.com/Compilers-Principles-Techniques-Tools-2nd/dp/0321486811">Compilers: Principles, Techniques and Tools</a>
+7. Cloud Computing
+   1. <a href = "https://www.amazon.in/Moving-Cloud-Developing-World-Computing-ebook/dp/B0071WJGQO">Moving To the Cloud</a>
+8. Parallel Computing
+   1. <a href = "https://www.amazon.in/Introduction-Parallel-Computing-Ananth-Grama/dp/0201648652">Introduction to Parallel Computing</a>
 
