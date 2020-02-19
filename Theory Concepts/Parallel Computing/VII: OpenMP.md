@@ -169,6 +169,8 @@ The schedule clause affects how loop iterations are mapped onto threads
    2. Special case of dynamic with lesser overhead
 4. schedule(runtime)
    1. Schedule and chunk size taken from OMP_SCHEDULE at runtime
+5. schedule(auto)
+   1. Auto scheduling chosen by compiler
 
 ## Memory Model
 
