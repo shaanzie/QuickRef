@@ -65,12 +65,6 @@ Here, 2 + 3*in allows the loop to be unchanged.
 
 For nested loops normalisation can be done as well.
 
-```
-for(i=3; i<=7; i++)
-    for(j = 6; j >= 2; j -= 2)
-        Z[i.j] = Z[i, j+2] + 1;
-```
-
 Dependences in vectors remain the same as scalars, i.e, Flow, Anti and Output dependences.
 
 A dependence graph is drawn to show data dependence between statements within a loop. Dependence distance is given by the dependence index positions. (1 for A[i] = A[i-1] + 1).
