@@ -21,3 +21,55 @@ An antidependence occurs when a location is in execution and subsequent instruct
 In control dependencies, hoisting can be done when statements resulting from a control statement execute before the condition. This may be avoided because if the instructions have exceptions or interrupts, they may lead to program crashes, even if the condition evaluates to false. Exceptions need to be precise to handle these types of errors.
 
 In looping constructs, we use load cascading to load multiple registers and do multiple updates without stalls, such as unrolling. If this unroll limit exceeds a certain point, however, the law of diminishing performance takes over.
+
+## Limits on ILP
+
+The ideal machine is defined by
+1. Register renaming - infinite registers
+2. Perfect branch prediction
+3. All addresses known exactly
+4. Perfect caches
+5. Infinite resources
+6. All FUs have unit latencies
+7. Processors can issue unlimited instructions by looking into the future of computation
+
+In experiments, this is done by a MIPS optimizing compiler, with program traces available before hand. Now we start limiting parameters for the effects.
+
+### Window size
+
+When window size is limited to n, it affects
+1. Instruction storage
+2. Maximum issue rate
+3. Number of operand comparison for dependence checking
+
+Instruction issues per cycle decrease as window size decreases. Here,
+1. Integer programs do not have as much parallelism as FP programs
+2. Highly dependent on loop-level parallelism
+
+### Branch Prediction
+
+Considering 5 alternatives
+1. Perfect
+2. Tournament predictor
+3. Standard 2 bit predictor
+4. Static
+5. None
+
+The prediction scheme varies from workload to workload. 
+
+### Finite Registers
+
+As registers decrease,
+1. Not a big difference in integer programs, as they are already limited by branch prediction and window size.
+
+### Imperfect Alias Analysis
+
+Memory can have dependencies too. In this we consider 3 models
+1. Global/stack perfect
+2. Inspection : Inspecting base registers and constant offsets
+3. None : All references are assumed to conflict
+
+Inspection and None have significantly low scores. Dynamic memory disambiguation is constrained by
+1. Each load address should be compared with all stores
+2. The number of references analysedper cycle
+3. Amount of load store buffering can predict how far the load store can be moved
