@@ -145,6 +145,20 @@ P <- C1
 [!P] SN
 ```
 
+The benefits of predication are
+1. Allows compiler to overlap execution of independent control constructs w/o code explosion
+2. Allows compiler to reduce frequency of branch mispredictions
+3. Reduces number of branch tests
+4. Reduces number of multiple execution paths and hardware costs
+5. Allows code movement in superblocks
+
+This comes with certain cost
+1. Increased fetch utilisation
+2. Increased register consumption
+3. Increased functional unit utilisation, if tested at commit time
+4. Increased complexity of exception handling
+5. Larger instructions impacting l-cache
+
 Depending upon the implementation, the instructions may be executed from both sides of the branch into the pipeline. 
 
 If predicated support exists, the hardware ensures that at the writeback stage, only those instructions are committed which need to be executed, based on the predicate.
