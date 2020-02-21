@@ -46,7 +46,12 @@ Due to the existence of these software walls, new processors offer
 CPUs are designed to optimize latency (Time taken for execution). They have
 1. High clock frequency
 2. Large caches
-3. ALU optimized
+   1. Convert long latency memory accesses to short latency cache accesses
+3. Sophisticared control
+   1. Branch prediction for reducing branch latency
+   2. Data forwarding for reduced data latency
+4. ALU optimized
+   1. Reduced operation latency
 
 GPUs have a throughput oriented design, where they exploit fine grained parallelism
 1. Moderate clock frequency
@@ -66,9 +71,22 @@ S = 1 / ( F  + (1 - F)/P )
 ```
 The number of parallel processors used is constrained by the amount of time that the program is in a sequential stage. The performance bottleneck occurs at the slowest instruction. The actual speedup is always lesser than the predicted speedup, and this law works in the environment where the problem size is fixed. 
 
+Extra work is involved in
+1. Work distribution in  parallel processors and result collection
+2. Straggler probem : Different compute times for different processors.
+
 ## Gustafson's Law
 
 ```
 S(n) = a + (1 - a)n 
 ```
 The speedup over a single processor is given by a which is the workload to be scaled up and  n is the number of processors. If the number increases, there will always be a net speedup increase, regardless of the application. The slope however, may change with the application.
+
+## Parallel Programming Workflow
+
+1. Identify compute internsive parts of an application
+2. Adopt scalable algorithms
+3. Optimize data arrangements to maximise locality
+4. Performance tuning
+5. Pay attention to code portability, scalability and maintainability
+
