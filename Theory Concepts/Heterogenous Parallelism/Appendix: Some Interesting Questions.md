@@ -241,3 +241,59 @@ for(int i = 0; i<N; i++)
 ```
 
 ## What are precise exceptions and speculation?
+
+## Research about Purify, Eraser, Valgrind, Daikon.
+
+### Purify
+
+Purify is a tool that can help you find logical errors in your program that lead to:
+1. bad array indexes
+2. bad pointer dereferences (e.g., deferencing an uninitialized pointer
+3. dereferencing a NULL pointer, or dereferencing a dangling pointer)
+storage leaks
+
+Purify works by instrumenting your code, adding runtime checks for bad memory accesses and storage leaks. When you run the instrumented program, a new purify window is opened; if your program performs any 
+
+### Eraser
+
+Eraser approaches locks by defining a set C(v) of candidate locks which might be used to protect a given shared variable. This set is defined as all possible locks, immediately after initialization (or as close as they can get - the authors admit they have no direct mechanism to detect init completion), and refined to smaller sets of locks as the shared variable is used. If a shared variable is ever accessed without any locks whatsoever, for example, C(v) for that variable is set to [] and remains the empty set until the end of execution.
+
+### Valgrind
+
+The Valgrind tool suite provides a number of debugging and profiling tools that help you make your programs faster and more correct. The most popular of these tools is called Memcheck. It can detect many memory-related errors that are common in C and C++ programs and that can lead to crashes and unpredictable behaviour.
+
+### Daikon
+
+Daikon is an implementation of dynamic detection of likely invariants; that is, the Daikon invariant detector reports likely program invariants. An invariant is a property that holds at a certain point or points in a program; these are often seen in assert statements, documentation, and formal specifications.
+
+## What are the different types of memory errors?
+
+- Dereferencing a null pointer, which usually points to an address that's not part of the process's address space
+- Dereferencing or assigning to an uninitialized pointer (wild pointer, which points to a random memory address)
+  - Allocator may not return the memory back to OS, causing no errors.
+- Dereferencing or assigning to a freed pointer (dangling pointer, which points to memory that has been freed/deallocated/deleted)
+- A buffer overflow
+- A stack overflow
+- Attempting to execute a program that does not compile correctly. (Some compilers will output an executable file despite the presence of compile-time errors.)
+
+## What are the different kinds of problems with locks with examples?
+
+1. Wrong locks acquired (Race conditions)
+2. Deadlocks
+3. Lock not being acquired (Race conditions)
+4. Lock not being freed (Starvation)
+5. Livelocks : A Livelock is a situation where a request for an exclusive lock is denied repeatedly, as many overlapping shared locks keep on interfering each other.
+
+## What are assertions and why are they used?
+
+Assertions are used for writing bulletproof and stringent code. This is mainly done for unit testing. 
+
+## What is a sound, precise and complete analysis?
+
+## What is link time optimization and whole program analysis?
+
+## What are the different types of analysis?
+
+## What are DUchains and UDchians?
+
+## What are available expressions, live variables?
