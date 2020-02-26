@@ -26,6 +26,8 @@ Frameworks:
    
 Paper Summaries
 1. <a href = "https://web.stanford.edu/~kozyraki/publications/2013.paragon.asplos.pdf">Paragon : A QoS Aware Scheduler</a>
+2. <a href = "https://www.hpl.hp.com/techreports/Compaq-DEC/WRL-93-6.pdf">Limits of ILP</a>
+3. <a href = "https://www.semanticscholar.org/paper/TRIPS%3A-A-polymorphous-architecture-for-exploiting-Sankaralingam-Nagarajan/ee6649fac2c085812421be9295d130feb55f3678">TRIPS: A polymorphous architecture for exploiting ILP, TLP, and DLP</a>
 
 Concepts:
 1. Computer Networks
