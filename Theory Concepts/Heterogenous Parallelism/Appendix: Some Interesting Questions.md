@@ -266,6 +266,63 @@ The Valgrind tool suite provides a number of debugging and profiling tools that 
 
 Daikon is an implementation of dynamic detection of likely invariants; that is, the Daikon invariant detector reports likely program invariants. An invariant is a property that holds at a certain point or points in a program; these are often seen in assert statements, documentation, and formal specifications.
 
+### Atom
+
+ATOM (Analysis Tools with OM) is a single framework for
+building a wide range of customized program analysis tools.
+It provides the common infrastructure present in all codeinstrumenting tools; this is the difficult and time-consuming
+part. The user simply defines the tool-specific details in
+instrumentation and analysis routines. Building a basic block
+counting tool like Pixie with ATOM requires only a page of
+code.
+
+### PIN
+
+Pin is a dynamic binary instrumentation framework for the IA-32, x86-64 and MIC instruction-set architectures that enables the creation of dynamic program analysis tools. Pin provides a rich API that abstracts away the underlying instruction-set idiosyncrasies and allows context information such as register contents to be passed to the injected code as parameters. Pin automatically saves and restores the registers that are overwritten by the injected code so the application continues to work. Limited access to symbol and debug information is available as well.
+
+### Fasttrack
+
+
+
+### Roadrunner
+
+ROADRUNNER is a dynamic analysis framework designed to facilitate rapid prototyping and experimentation with dynamic analyses
+for concurrent Java programs. It provides a clean API for communicating an event stream to back-end analyses, where each event
+describes some operation of interest performed by the target program, such as accessing memory, synchronizing on a lock, forking
+a new thread, and so on.
+
+### Lint
+
+Linting is the automated checking of your source code for programmatic and stylistic errors. This is done by using a lint tool (otherwise known as linter). A lint tool is a basic static code analyzer.
+
+### perflint
+
+Simply by recompiling and running on a representative input set, programmers receive context sensitive performance advice on their use of standard library data structures and algorithms. Our solution consists of collecting traces of relevant library operations and state during program execution, and then recognizing patterns for which there is a faster alternative, based on a model made of performance guarantees in the C++ language standard and machine knowledge. perflint has already found hundreds of suboptimal patterns in a set of large C++ benchmarks.
+
+### FindBugs
+
+FindBugs™ is a program to find bugs in Java programs. It looks for instances of "bug patterns" --- code instances that are likely to be errors.
+
+### Coverity
+
+Additionally, Synopsys's implementation of static analysis can follow all the possible paths of execution through source code (including interprocedurally) and find defects and vulnerabilities caused by the conjunction of statements that are not errors independent of each other.
+
+### Microsoft SLAM
+
+SLAM is a project for checking that software satisfies critical behavioral properties of the interfaces it uses and to aid software engineers in designing interfaces and software that ensure reliable and correct functioning. Static Driver Verifier is a tool in the Windows Driver Development Kit that uses the SLAM verification engine.
+
+### Facebook infer
+
+SLAM is a project for checking that software satisfies critical behavioral properties of the interfaces it uses and to aid software engineers in designing interfaces and software that ensure reliable and correct functioning. Static Driver Verifier is a tool in the Windows Driver Development Kit that uses the SLAM verification engine.
+
+### ESC/Java
+
+ESC/Java (and more recently ESC/Java2), the "Extended Static Checker for Java," is a programming tool that attempts to find common run-time errors in Java programs at compile time.[1] The underlying approach used in ESC/Java is referred to as extended static checking, which is a collective name referring to a range of techniques for statically checking the correctness of various program constraints.
+
+### Soot
+
+In static program analysis, Soot is a bytecode manipulation and optimization framework consisting of intermediate languages for Java. It has been developed by the Sable Research Group at McGill University. Soot provides four intermediate representations for use through its API for other analysis programs to access and build upon:
+
 ## What are the different types of memory errors?
 
 - Dereferencing a null pointer, which usually points to an address that's not part of the process's address space
@@ -297,3 +354,66 @@ Assertions are used for writing bulletproof and stringent code. This is mainly d
 ## What are DUchains and UDchians?
 
 ## What are available expressions, live variables?
+
+## What do the following mean?
+
+1. Static Program Analysis
+   1. Static program analysis is the analysis of computer software that is performed without actually executing programs, in contrast with dynamic analysis, which is analysis performed on programs while they are executing. In most cases the analysis is performed on some version of the source code, and in the other cases, some form of the object code.
+2. Dynamic  Program Analysis
+   1. Dynamic program analysis is the analysis of computer software that is performed by executing programs on a real or virtual processor. For dynamic program analysis to be effective, the target program must be executed with sufficient test inputs to cover almost all possible outputs.
+3. Hybrid Program  Analysis
+   1. Mixture of dynamic and static program analysis
+4. Abstract Interpretation
+   1. Most interesting properties of programs are undecidable, and even those that are not may be very expensive to compute. Therefore, static analysis usually involves some kind of abstraction. For example, instead of keeping track of all of the values that a variable may have at each point in a program, we might only keep track of whether a variable's value is positive, negative, zero, or unknown. Abstraction makes it possible to discover interesting properties of programs, but the results of static analysis are usually incomplete: for example, an analysis may say that a variable's value is unknown at a point when in fact the value will always be positive at that point.
+5. Model Checking
+   1. Model checking is a method for formally verifying finite-state concurrent systems. Specifications about the system are expressed as temporal logic formulas, and efficient symbolic algorithms are used to traverse the model defined by the system and check if the specification holds or not. Extremely large state-spaces can often be traversed in minutes. The technique has been applied to several complex industrial systems such as the Futurebus+ and the PCI local bus protocols.
+6. Concurrency Bugs
+   1. A concurrency bug is an (undesired) outcome that arises if two programs are run at the same time that does not show up if the two programs are run sequentially, one after the other. 
+7. Performance Bugs
+   1. Performance issues are introduced by mistake and “unintended behavior”, the very definition of a bug. If the product is a performance based one and it's having performance requirements, the performance issues should be treat like blocker bugs.
+8. Memory Bugs
+   1. Memory bugs, essentially a mistake in the management of heap memory, can occur in any program that is being written, enhanced, or maintained.
+9.  Basic Block Analysis
+    1.  At the end of the BB analysis each instruction in I must be either reached, unreachable, leader, or unreachable leader. The purpose of unreachable leaders is explained below. Unreachable code can be eliminated from I.
+10. Loop Nest Analysis
+    1.  Dependence Analysis
+11. Intraprocedural Analysis
+    1. Intraprocedural analysis is a mechanism for performing optimization for each function within a compilation unit, using only the information available for that function and compilation unit.
+12. Inter-Procedure Analysis
+    1. Interprocedural analysis is a mechanism for performing optimization across function boundaries. The optimizing translator performs interprocedural analysis, but only within a compilation unit.
+13. In-class analysis
+    1.  
+14. Inter-class Analysis
+15. Control Flow Analysis
+    1. In computer science, control-flow analysis (CFA) is a static-code-analysis technique for determining the control flow of a program. The control flow is expressed as a control-flow graph (CFG). 
+16. Data Flow Analysis
+    1.  Dataflow analysis is usually performed on the program's control-flow graph (CFG); the goal is to associate with each program component (each node of the CFG) information that is guaranteed to hold at that point on all executions.
+    ```
+    a = 1;
+    b = 2;
+    c = 3;
+    if (...) x = a + 5;
+    else x = b + 4;
+    c = x + 1;
+    ```
+    1. In this example, the initial assignment to c (at line 3) is useless, and the expression x + 1 can be simplified to 7, but it is less obvious how a compiler can discover these facts since they cannot be discovered by looking only at one or two consecutive statements. 
+17. Dependence Analysis
+    1.  In compiler theory, dependence analysis produces execution-order constraints between statements/instructions. Broadly speaking, a statement S2 depends on S1 if S1 must be executed before S2. Broadly, there are two classes of dependencies--control dependencies and data dependencies. Dependence analysis determines whether it is safe to reorder or parallelize statements.
+18. Alias Analysis
+    1.  Alias analysis is a technique in compiler theory, used to determine if a storage location may be accessed in more than one way. Two pointers are said to be aliased if they point to the same location.
+19. Pointer Analysis
+    1. In computer science, pointer analysis, or points-to analysis, is a static code analysis technique that establishes which pointers, or heap references, can point to which variables, or storage locations. It is often a component of more complex analyses such as escape analysis. A closely related technique is shape analysis.
+20. Shape Analysis
+    1.  In program analysis, shape analysis is a static code analysis technique that discovers and verifies properties of linked, dynamically allocated data structures in (usually imperative) computer programs. It is typically used at compile time to find software bugs or to verify high-level correctness properties of programs.
+21. Escape analysis
+    1. In compiler optimization, escape analysis is a method for determining the dynamic scope of pointers – where in the program a pointer can be accessed. It is related to pointer analysis and shape analysis.
+22. Taint Analysis
+    1. The taint analysis is a popular method which consists to check which variables can be modified by the user input. All user input can be dangerous if they aren't properly checked. 
+23. Compiler Optimization
+    1. In computing, an optimizing compiler is a compiler that tries to minimize or maximize some attributes of an executable computer program. Common requirements are to minimize a program's execution time, memory requirement, and power consumption (the last two being popular for portable computers).
+24. Loop Optimization (LNO)
+    1.  In computer science and particularly in compiler design, loop nest optimization (LNO) is an optimization technique that applies a set of loop transformations for the purpose of locality optimization or parallelization or other loop overhead reduction of the loop nests. One classical usage is to reduce memory access latency or the cache bandwidth necessary due to cache reuse for some common linear algebra algorithms.
+25. Link Time Optimization (LTO)
+    1.  Link Time Optimization (LTO) refers to program optimization during linking. The linker pulls all object files together and combines them into one program.
+26. Whole Program Analysis
+
