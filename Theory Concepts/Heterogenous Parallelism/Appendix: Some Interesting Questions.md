@@ -347,10 +347,6 @@ Assertions are used for writing bulletproof and stringent code. This is mainly d
 
 ## What is a sound, precise and complete analysis?
 
-## What is link time optimization and whole program analysis?
-
-## What are the different types of analysis?
-
 ## What are DUchains and UDchians?
 
 ## What are available expressions, live variables?
@@ -417,3 +413,34 @@ Assertions are used for writing bulletproof and stringent code. This is mainly d
     1.  Link Time Optimization (LTO) refers to program optimization during linking. The linker pulls all object files together and combines them into one program.
 26. Whole Program Analysis
 
+## What gets printed?
+```
+Thread 1
+
+A = 1
+if(B == 0)
+    print "Hello";
+
+Thread 2
+
+B = 1
+if(A == 0)
+    print "World";
+```
+1. Assume A and B are intialised to 0, and are run simultaneously on a two processor system.
+2. What if the write was not atomic?
+
+Ans: 
+
+1.
+```
+Hello
+World
+HelloWorld
+WorldHello
+<nothing>
+```
+
+## What orderings can occur when a racey program is given, depending on the architecture (based on consistency model)?
+
+## What different consistency models are followed in real processors?
