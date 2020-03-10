@@ -444,3 +444,13 @@ WorldHello
 ## What orderings can occur when a racey program is given, depending on the architecture (based on consistency model)?
 
 ## What different consistency models are followed in real processors?
+
+## Give an example of priority inversion and how do you prevent it? When does the prevention occur?
+
+https://stackoverflow.com/questions/4252158/what-is-priority-inversion
+
+Priority inversion can be avoided by avoiding blocking as the low priority task blocks the high priority task. The priority of the ready tasks can be randomly boosted until they exit the critical section.
+
+## What is async-signal-safety?
+
+## Implement skip-lists (Serial and Parallel).
