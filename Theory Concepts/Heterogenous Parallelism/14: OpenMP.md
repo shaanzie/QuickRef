@@ -48,3 +48,67 @@
 - Threads can be nested in the parallel region as well.
 - Compiler generates a thunk() function that sets up the pthread environment running the copy of the function, and after running, it will call thunk itself.
 
+## Synchronization
+
+- Barrier
+  - Each thread waits at the barrier until all the threads arrive
+- Mutual Exclusion
+  - Define a block of code that only one thread at a time can execute
+- High Level Sync
+  - Critical
+  - Atomic 
+  - Barrier
+  - Ordered
+- Low Level Sync
+  - Flush
+  - Locks
+
+1. Barrier synchronization
+
+```
+#pragma omp parallel
+{
+  int id = omp_get_thread_num();
+  A[id] = some_big(id, A);
+  #pragma omp barrier
+  B[id] = some_big(id, A);
+}
+```
+
+2. Mutual Exclusion - Critical Section
+
+```
+float res;
+#pragma omp parallel
+{
+  float B;
+  int id, i, nthrds;
+  id = omp_get_thread_num();
+  nthrds = omp_get_num_threads();
+  for(i = id; i<niters; i+=nthrds) {
+    B = big_job();
+    #pragma omp critical
+    {
+      res += consume(B);
+    }
+  }
+}
+```
+
+3. Atomic
+
+- There are constructs in hardware that do quick updates in memory and these need efficient mutual exclusion. Atomic says that if there exists such optimizations, use them. 
+
+```
+#pragma omp parallel
+{
+  double tmp, B;
+  B = DOIT();
+  tmp = big_ugly(B);
+
+  #pragma omp atomic
+  {
+    X += tmp;
+  }
+}
+```
