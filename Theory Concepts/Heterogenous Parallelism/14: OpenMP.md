@@ -112,3 +112,103 @@ float res;
   }
 }
 ```
+
+- Worksharing is used to divide work among threads.
+- The most common worksharing construct is loop.
+
+```
+#pragma omp parallel
+{
+  #pragma omp for
+  for(i = 0; i<N; i++)
+  {
+    NEAT_STUFF();
+  }
+}
+```
+- This splits up the iterations of this to each thread.
+- OpenMP makes the loop control index on a parallel loop private to a thread
+- The `schedule` directive tells the compiler how to split the iterations
+  - `schedule(static [,chunk])` deals out blocks of iterations of size chunk to each thread
+  - `schedule(dynamic [,chunk])` is used when each thread grabs a chunk of iterations off a queue
+  - `schedule(guided [,chunk])` is where threads dynamically grabs blocks of iterations and the size shrinks as the calculation proceeds
+  - `schedule(runtime)` is where the OMP_SCHEDULE env variable takes the schedule and chunk size
+  - `schedule(auto)` is where the schedule is left upto the runtime to choose
+
+- We use the static clause when the decision is predetermined and predictable, and allows the least work at runtime.
+
+- There are times where barriers need to be declared explicitly, and times where barriers are implicitly introduced in the code
+
+```
+#pragma omp parallel shared (A, B, C) private(id)
+{
+  id = omp_get_thread_num();
+  A[id] = big_calc(id);
+  #pragma omp barrier
+  #pragma omp for
+    for(i = 0; i<N; i++) {  C[i] = big_calc3(i, A); }
+  #pragma omp for nowait
+    for(i = 0; i<N; i++) {  B[i] = big_calc2(C, i); }
+    A[id] = big_calc4(id);
+}
+```
+
+- In this, A, B and C are shared and id is private
+- Here, an explicit barrier is used to specify that A should be done updating for the next clause
+- But there exists an implicit barrier at the end of the loop, to produce safety.
+- There exists an implicit barrier for every worksharing construct
+- In the third loop, a barrier is not required as B is not affected by calculations of C. Hence, the nowait clause is used to turn off barriers, and must be used carefully
+- The master construct says that only the master thread is allowed to execute the block of code specified in the master
+
+```
+#pragma omp parallel
+{
+  do_many();
+  #pragma omp master
+  {
+    exchange_boundaries();
+  }
+  #pragma omp barrier
+}
+```
+
+- The single worksharing construct is used to specify that only one thread does the work in this block.
+- Single attaches an implicit barrier at the end of the construct
+
+```
+#pragma omp parallel
+{
+  do_many();
+  #pragma omp single
+  {
+    exchange_bounds();
+  }
+}
+```
+
+- The sections and section constructs give a way to execute sections of code.
+
+```
+#pragma omp parallel
+{
+  #pragma omp sections
+  {
+    #pragma omp section
+      x_calculation();
+    #pragma omp setion
+      y_calculation();
+    #pragma omp section
+      z_calculation();
+  }
+}
+```
+
+## Locks in OpenMP
+
+- Locks are the lowest level of synchronization
+- omp_init_lock() - Initialises lock
+- omp_set_lock() - Sets a lock
+- omp_unset_lock() - releases a lock
+- omp_destroy_lock() - destroys a lock
+- omp_test_lock() - If lock is available, set, else returns not available and the thread can do something else
+-  
