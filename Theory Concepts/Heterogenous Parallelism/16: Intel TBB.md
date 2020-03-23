@@ -49,7 +49,3 @@ g.wait_for_all();   // Wait for every thread to return
   - Buffering
   - Split/Join
   - Other
-
-## Heterogeneous Support in TBB
-
-- 
