@@ -22,4 +22,3 @@
   - Efficiently launching a number of threads
   - Running a lot of threads in parallel
 - The cudaLaunch operator is given by <<<>>> and launches the kernel depending on the size
-- 
