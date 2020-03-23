@@ -454,3 +454,7 @@ Priority inversion can be avoided by avoiding blocking as the low priority task 
 ## What is async-signal-safety?
 
 ## Implement skip-lists (Serial and Parallel).
+
+## Implement Computer Vision Algorithms using Intel TBB.
+
+## When is OpenMP better than TBB?
