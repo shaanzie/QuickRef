@@ -458,3 +458,13 @@ Priority inversion can be avoided by avoiding blocking as the low priority task 
 ## Implement Computer Vision Algorithms using Intel TBB.
 
 ## When is OpenMP better than TBB?
+
+## Do vector addition using OpenCL.
+
+## Why is the tradeoff for speed is easier comparitively for a GPU?
+
+This is because the design is not as complex.
+
+## Can we do pipeline parallelism in OpenCL?
+
+## Compute a[i] = b[i]*c[i] + d[i]*e[i] on OpenCL, CUDA and compare performance. ( n varies from 100000 to 1000000).
