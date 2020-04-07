@@ -27,3 +27,34 @@ An SDD that involves only synthesized attributs is called S-attributed. Each rul
 
 ### Evaluating an SDD at the nodes of a Parse Tree
 
+A parse tree showing the values of its attributes is called an annotated parse tree. With synthesized attributes, we can evaluate attributes in any bottom-up order, such as that of a postorder traversal of the parse tree. For SDDs with both inherited and synthesized attributes, there is no guarantee that there is even one order in which to evaluate the attributes in the nodes. 
+
+Inherited attributes are useful when the structure of a parse tree does not match the abstract syntax of the source code. 
+
+## Evaluation Orders for SDDs
+
+### Dependency Graphs
+
+A dependency graph depicts the flow of information among the attribute instances in a particular parse tree; an edge from one attribute instance to another means that the value of the first is needed to compute the second. Edges express constraints implied by semantic rules.
+1. For each parse tree node, the graph has a node for each attribute associated with the node
+2. Every production creates an edge between dependent nodes, whether they are synthesized or inherited
+
+A topological sort is followed for the ordering of evaluation. If there exists a cycle, there is no way to evaluate the SDD. 
+
+### S-Attributed Definitions
+
+When an SDD is S-attributed, any order of evaluation can be used which is bottom-up. We usually apply a functional postorder, where the attributes associated with node N are evaluated in the traversal.
+
+### L-Attributed Definitions
+
+In this, dependency graph edges can go from left to right, but not from right to left.
+Each attribute must be 
+1. Synthesized
+2. Inherited, but with rules as follows. For A -> X1 X2 X3 .. Xn, and that there is an inherited attributed Xi.a computed by a rule where the rule uses only
+   1. Inherited attributes associated with head A
+   2. Either inherited or synthesized attributes associated with the occurence of symbols X1 X2 X3 ... X(i-1) located to the left of Xi.
+   3. Inherited or synthesized attributes associated with this occurence of Xi itself, but in such a way that there are no cycles in the dependency graph formed.
+
+## Applications of Syntax-Directed Translation
+
+The main applications of SDTs are syntax trees, used as an intermediate representation. The nodes of the syntax tree are implemented by objects with suitable fields. Each object has an op field with the label of the node. If the node is a leaf, an additional field holds the lexical value for the leaf. If the node is an interior node, there are as many additional fields as children in the syntax tree.
