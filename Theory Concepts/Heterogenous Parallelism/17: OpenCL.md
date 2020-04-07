@@ -90,7 +90,7 @@
 3. Create context for devices
 4. Create queues for context and device
 5. Create program objects
-6. Create memoyr objects
+6. Create memory objects
 7. Kernel execution
    1. Kernel arguments
    2. Put kernel into queue

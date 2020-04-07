@@ -468,3 +468,5 @@ This is because the design is not as complex.
 ## Can we do pipeline parallelism in OpenCL?
 
 ## Compute a[i] = b[i]*c[i] + d[i]*e[i] on OpenCL, CUDA and compare performance. ( n varies from 100000 to 1000000).
+
+## Write matrix mult for C++AMP.
