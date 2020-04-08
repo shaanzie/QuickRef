@@ -470,3 +470,5 @@ This is because the design is not as complex.
 ## Compute a[i] = b[i]*c[i] + d[i]*e[i] on OpenCL, CUDA and compare performance. ( n varies from 100000 to 1000000).
 
 ## Write matrix mult for C++AMP.
+
+## Use async in C++11 to code sum of squares from 1 to 20.

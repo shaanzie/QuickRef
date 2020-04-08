@@ -39,4 +39,3 @@ void AddArrays(int n, int* pA, int* pB, int* pSum)
 - parallel_for_each uses a tiled overhead approach
   - Schedule threads in tiles
   - tiled_index accepted as thread IDs.
-- 
