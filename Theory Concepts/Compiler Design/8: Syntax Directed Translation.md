@@ -58,3 +58,10 @@ Each attribute must be
 ## Applications of Syntax-Directed Translation
 
 The main applications of SDTs are syntax trees, used as an intermediate representation. The nodes of the syntax tree are implemented by objects with suitable fields. Each object has an op field with the label of the node. If the node is a leaf, an additional field holds the lexical value for the leaf. If the node is an interior node, there are as many additional fields as children in the syntax tree.
+
+### Construction of Syntax Trees
+
+The nodes of the syntax tree are implemented with objects. Each object has an op field which is the label of that node, and has the following fields
+1. If the node is a leaf, an additional field holds the lexical value for the leaf. 
+2. If the node is an interior node, there are as many additional fields as children.
+
