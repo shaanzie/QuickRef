@@ -69,14 +69,26 @@ public class Exercise9 {
         // N consumers and producers
 
         // Command line
-        int consumers = Integer.parseInt(args[1]);
-        int producers = Integer.parseInt(args[2]);
-        Thread[] consumerThread = new Thread[];
-        for(int i = 0; i<args[1]; i++)
-        consumerThread.start();
-        Thread producerThread = new Thread(new Producer(), "producer");
-        producerThread.start();
-        consumerThread.join();
-        producerThread.join();
+        int consumers = Integer.parseInt(args[0]);
+        int producers = Integer.parseInt(args[1]);
+        
+        Thread[] consumerThread = new Thread[consumers];
+        for(int i = 0; i<consumers; i++)
+        {    consumerThread[i] = new Thread(new Consumer(), "Consumer" + i);
+            consumerThread[i].start();
+        }
+        
+        Thread[] producerThread = new Thread[producers];
+        for(int i = 0; i<producers; i++)
+        {    
+            producerThread[i] = new Thread(new Producer(), "producer" + i);
+            producerThread[i].start();
+        }
+        for (int i = 0; i < consumerThread.length; i++) {
+            consumerThread[i].join();
+        }
+        for (int i = 0; i < producerThread.length; i++) {
+            producerThread[i].join();
+        }
     }
 }
