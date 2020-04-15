@@ -13,3 +13,5 @@
   - M*N vs M+N problem
     - For M languages and N machines, we need M*N compilers
     - We try to find a need to design only M front ends and N back ends, and link all M*N compilers (Universal Intermediate Language)
+
+- A compiler generator should be able to generate compilers from target specifications, reducing its time to test and develop a full fledged compiler.
