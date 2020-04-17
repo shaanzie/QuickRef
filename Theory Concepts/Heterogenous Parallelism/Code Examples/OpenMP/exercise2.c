@@ -39,7 +39,7 @@ int main()
 }
 
 /* 
-Scalability sucks
+Scalability is bad
 
 
 This happens due to false sharing.
