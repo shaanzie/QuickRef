@@ -21,4 +21,7 @@
   - Enforce associativity and precedence
   - Rewrite grammar
 
-- 
+- Left recursive grammars are those which have productions of the form A -> Ab. Similarly, right recursiveness is defined
+- Parsing is the process of determination whether a string can be derived from a grammar
+  - Top-down parsing - derive from start symbol
+  - Bottom-up parsing - derive from leaf nodes
