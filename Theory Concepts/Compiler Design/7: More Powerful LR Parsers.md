@@ -21,3 +21,12 @@ We say LR(1) item [A -> a.b, c] is valid for a prefix p, if there is a derivatio
 To build the collection of LR(1) set of items, its the same principle as the canonical collection of sets of LR(0) items. But in this, we consider a lookahead, and is the first of the symbol following the production the rule that derives it.
 
 LALR parsing tables just combine sets of LR(1) items that do not differ in LR(0) itemsets, to make parsing more efficient by reducing the number of sets of elements to validate.
+
+## Shorthand for Parsers
+
+LL(0) : Top down, No lookahead 
+LL(k) : Top down, k lookaheads
+LR(0) : Reductions in the whole row of a state
+SLR(1) : Reduction only in follow set of LHS of production getting reduced
+LALR(1) : Remove redundant entries from CLR(1) with same LR(1) items
+CLR(1) / LR(1) : Entries based on unique LR(1) + lookahead items
