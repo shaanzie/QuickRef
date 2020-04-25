@@ -1,0 +1,36 @@
+# Scaling Compute
+
+- Compute system scale as requests increase
+- First take a SQL database, then shift towards NoSQL when users increase, as
+  - low latency
+  - Unrelational data
+  - Metadata driven datasets
+  - Schema less data constructs
+  - Massive amounts of data ingestion
+- Elastic Load balancing in AWS provides redundancy and lack of failover
+- Reverse proxy
+  - Scale out vs Scale up
+  - Provides firewall and health monitoring
+- AWS Elastic Beanstalk
+  - Provides auto deploy, load balancing and scaling
+  - Also gives reverse proxy
+- Load can be shifted around as 
+  - Static content from web instance to S3 and CloudFront
+  - Dynamic content from ELB to CloudFront
+  - Move session/state and DB caching to ElastiCache or Amazon DynamoDB
+- Amazon CloudFront
+  - Scalable content delivery
+  - Cache static content on the edge
+  - Zone apex support
+  - Low TTLs
+  - Low cost
+- Elasticity - AutoScaling
+  - Ability of a system to dynamically adapt its underlying computing infrastructure resources in response to variable workload changes
+  - Horizontal scaling
+    - More computing resources
+    - Growing management complexity
+  - Vertical scaling
+    - Bigger compute
+    - Single point of failure
+  - Rule based scaling
+    - Monitor resources and trigger adding or releasing compute based on thresholds
