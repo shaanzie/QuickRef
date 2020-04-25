@@ -1,0 +1,29 @@
+# Multitenancy
+
+- Virtualisation
+  - Course grained resource sharing
+  - Generally hardware
+- Fine grained resource sharing is offered generally by software
+- Tenants: Customers of a cloud provider
+- Users: Users of the cloud system that may belong to a tenant
+- Different types of multitenancy are possible
+  - Simplest: Each client has own version of software
+  - Most complex: Single version of software hosted on cluster
+- Database methods
+  - Dedicated tables per client
+    - Each tenant has their own tables
+    - Store different tables in different files for security
+  - Shared tables per client
+    - All data on same table
+    - Each row has tenant ID
+    - Space efficient
+    - Can use keys for encryption and added metadata
+- Customizations, say different fields per tenant
+  - Pre-allocated columns
+    - Pre defined custom columns per row
+    - Metadata stores info about the custom columns
+  - Name-value pairs
+    - Main table has name-value pair record column
+    - Pivot table has list of name-value pairs
+    - Greater space efficiency
+    - Joins needed to reconstruct records
