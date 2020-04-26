@@ -1,0 +1,51 @@
+# Microservices and Kubernetes
+
+- Microservice model
+  - Package each sub application such that it has
+    - Its own GUI
+    - Business logic
+    - Database
+    - Endpoint specification with REST
+- The API gateway forwards REST API requests to uServices running in containers
+  - Containers also communicate with other containers using REST APIs
+- Each element of functionality is a seperate service
+- Scaling is done by distributing these services
+- Microservice DBs following eventual consistency models allow faster request servicing
+- To allow building these microservices quickly, we design a specification file for a container describing the type of application on the container
+- At run time
+  - Parse the specification
+  - Select machines to run containers
+  - Start the container
+  - Setup networking
+  - Setup persistent storage
+- Kubernetes provides the following for the containers deployed
+  - Scheduling - where to run the container
+  - Lifecycle and health - keep the containers running
+  - Scaling
+  - Load balancing
+  - Naming and discovery
+  - Storage volumes
+  - Identity and authorization
+- Architecture
+  - Master
+    - Manages cluster
+    - Performs
+      - Scheduling
+      - Maintenance
+      - Application monitoring
+      - Scaling
+  - Node
+    - Worker machine that runs container
+  - Node and master communicate using the K8s API
+  - Pod
+    - Container or a group of containers
+  - Kubelet
+    - Pod configuration invokes Docker to run the containers
+  - Controller manager
+    - Runs controller
+- Pods are the core K8s component
+  - Collection of 1 or more container
+  - Sidecar containers can be added to enhance features of core container
+  - Can handle scaling and deployment
+    - System performance - scaling based on load
+    - System monitoring - Health monitoring
