@@ -472,3 +472,5 @@ This is because the design is not as complex.
 ## Write matrix mult for C++AMP.
 
 ## Use async in C++11 to code sum of squares from 1 to 20.
+
+## What is control speculation and data speculation?

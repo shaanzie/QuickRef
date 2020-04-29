@@ -6,6 +6,7 @@ Moore's law states that the number of transistors in an integrated circuit doubl
 Moore's law has benefitted in the following introductions
 1. Caches
 2. Pipelining
+   1. Overlapping of instructions
 3. Branch prediction
    1. The challenges in branch prediction are
       1. User input handling
@@ -20,8 +21,9 @@ Moore's law has benefitted in the following introductions
 8. Register Allocation
 9.  Vectorization
 10. Prefetching
-    1. Caching does not leverage irregular memory accesses in locality, so we prefetch data which may be used
+    1. Caching does not leverage irregular memory accesses in locality, so we prefetch data which may be used to the cache
 11. Speculation
+    1.  Control speculation and Data speculation
 12. Instruction scheduling
 13. Software pipelining
     1.  Allows optimization techniques such as overlapping instructions at the software level
