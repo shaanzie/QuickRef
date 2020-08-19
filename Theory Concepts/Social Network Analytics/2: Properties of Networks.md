@@ -51,3 +51,12 @@
 
 - Reciprocity = (1/|E|) * Tr(A<sup>2</sup>)
 - Maximum R is achieved when Tr(A<sup>2</sup>) = |E|, when all directed edges are reciprocated.
+
+- Triadic relationships (between 3 nodes)
+  - No ties
+  - One tie
+  - Two ties (open triad)
+  - All three ties (transitive triad/balanced triad/closed triad)
+
+- The counts of the relative prevelance of these 4 types across all possible triples give a sense of the extent to which a population is characterized by isolation, couples only, structural holes or clusters.
+- There are 16 possible types of relations among 3 actors in a directed graph.
