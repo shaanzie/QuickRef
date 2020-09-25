@@ -42,3 +42,7 @@ class Name
   - Creates class hierarchy
   - Not a reuse mechanism primarily
   - Can be a reuse at class level, but that's about it
+  - Basic idea
+    - Share the interface
+    - Avoid if statements based on value of a type
+    - Avoid brittle code
