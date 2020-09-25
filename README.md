@@ -49,4 +49,10 @@ Concepts:
    1. <a href = "https://www.amazon.in/Moving-Cloud-Developing-World-Computing-ebook/dp/B0071WJGQO">Moving To the Cloud</a>
 8. Parallel Computing
    1. <a href = "https://www.amazon.in/Introduction-Parallel-Computing-Ananth-Grama/dp/0201648652">Introduction to Parallel Computing</a>
-
+9. Blockchain
+10. Deep Learning
+11. Distributed Systems
+12. Introduction to Algorithms
+13. Object Oriented Modelling and Design
+14. Social Network Analytics
+15. System Security
