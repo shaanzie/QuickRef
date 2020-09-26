@@ -17,3 +17,9 @@
   - Dynamic dispatch: Looking at compile time code, we cannot know which variant of the overloaded function is being called
 
 - A diamond denotes composition in a UML diagram
+
+- Polymorphism is implemented using vtbl and vptr concepts
+- There is no free lunch
+  - Pointer per object
+  - Table per class
+  - Extra dereferencing at runtime
