@@ -1,0 +1,23 @@
+# Cryptocurrency
+
+- Some cryptocurrencies
+  - BCash - Bitcoin
+  - Monero
+    - Hash function: CryptoNight
+  - Dash
+    - Written in C++
+  - Dogecoin
+    - Hash function: Scrypt based
+    - Written in C++
+    - Floating exchange rate
+  - NEM
+    - Peer to peer
+    - Written in Java, C++, Qt
+  - Nxt
+    - Proof-of-stake
+    - Written in Java
+  - PeerCoin
+    - Proof of work and Proof-of-stake
+  - PrimeCoin
+    - Proof-of-work
+    - Written in C++
