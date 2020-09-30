@@ -1,0 +1,62 @@
+# Component Diagrams
+
+- A component is an independent autonomous unit in a system
+  - We divide a system into their own functional atomic subsystems
+  - By applying a set of rules
+  - Can be used to describe a system of arbitrary size and complexity
+  - UML Component diagrams enable to model the high level software components and the interfaces to them
+  - They can be easily reused and replaced
+  - Referred also to as Wiring Diagrams
+
+- A component has the following elements
+  - Interface
+    - An interface is a declaration of a set of operations
+  - Usage dependency
+    - Relationship where one element requires another for implementation
+  - Ports
+    - Represents an interaction point between a component and its environment
+  - Connector
+    - Connects two components
+    - Connect external contract of a component to internal structure
+
+- A rectangle is used to represent a component
+- Interfaces can be denoted by
+  - Socket ball: Where two components use the same interface
+    - Component providing the interface takes the ball side, and the one using takes the socket side
+  - Rectangle with `<<interface>>` in the body, with dependency arrows from components
+  - Multiple components can be connected to the same interface using a Ball socket split into multiple components servicing that interface
+- Dependencies are denoted by
+  - Dotted arrows, with dependency type
+  - Head points to independent type
+  - `<<use>>`
+    - If a component gets a request, and the calculation is done on the component
+  - `<<delegate>>`
+    - If a component gets a request, and the calculation is delegated to another component
+- Ports are denoted by
+  - Specifies a distinct interaction point between
+    - Component and environment
+    - Component and internal parts
+  - Square symbol
+  - Can be named
+  - Interface attached specify the nature of that port
+- Assembly Connectors
+  - Everything put together
+  - Tells how the components are interconnected
+  - Interfaces should be compatible
+- Delegation connector
+  - Denoted by socket and arrow
+  - A port may delegate to a set of ports on subordinate components
+  - The union of target interfaces must be signature compatible with source interface
+
+- Views of a component
+  - Internal View
+    - Realises components nested within the component
+    - Realisation is a relationship between 2 sets of model elements
+      - One represents specification
+      - Other represents implementation of the latter
+    - Internal classes that realise the behavior of the parent
+  - External view
+    - Just publicly visible props
+    - Interface can be listed in the compartment of a component box
+
+- 
