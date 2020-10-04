@@ -19,5 +19,3 @@
 - Pagerank of Page T is weighted by the outbound links C(Ti)
   - The more outgoing links, the less A would benefit from a link on page Ti
 - A damping factor d is used which can be set between 0 and 1, reducing the benefit of linking to a page
-
-- 
