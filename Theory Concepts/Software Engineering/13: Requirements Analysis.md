@@ -1,0 +1,40 @@
+# Requirements Analysis
+
+- Requirements represent a compromise
+  - Environmental
+  - Economic
+  - Political
+
+- Process
+  - Understand the requirements in depth
+    - Context of the requirements needs to be understood
+  - Classify into coherent clusters
+    - Functional
+      - High level statements
+      - Can be verified
+      - Also indicates what the system should not do
+    - Non functional
+      - Constraints on the services or functions
+      - Applied to whole system
+      - Specify the criteria to judge the system
+    - Domain
+    - System
+      - Structured document setting with system functions
+      - What should be implemented so may be a part of a contract
+      - Software requirements
+    - User
+    -   Statements with natural language outlining constraints
+  - Model the requirements
+    - Identify the components as a decomposition
+    - Informal models, formal models, simple procedural, dynamic models, etc
+  - Analyze the requirements using fish bone diagram
+    - Effect is the fish head, and the causes are the bones
+    - Lists reasons on why the requirement has come in
+  - Recognize and resolve conflicts
+    - Functionality vs cost vs timelines
+  - Negotiate requirements
+  - Prioritize the requirements
+    - MoSCoW - Must have, Should Have, Could have, Won't Have
+    - Pareto analysis
+  - Identify risks if any
+  - Decide on Build or Buy (Commerical Of The Shelf Solution) and refine requirements
