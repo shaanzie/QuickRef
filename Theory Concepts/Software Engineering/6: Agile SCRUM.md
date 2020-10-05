@@ -1,0 +1,43 @@
+# Agile SCRUM
+
+- Scrum is an iterative approach, and provides mechanisms to apply agile practices
+  - Defined by
+    - Roles
+      - Scrum Team
+        - Organisation split into small teams
+        - Cross functional and self organized
+        - Deliver increments
+      - Scrum master
+        - Facilitator and ensures team adheres to scrum practices
+      - Product owner
+        - Manages product backlog
+        - Rep of the team
+    - Events
+      - Split time into short fixed length iterations called sprints
+      - Potentially shippable code in each iteration (time boxing)
+      - Sprint backlog is the list of features to be incorporated in the sprint
+      - One release may contain number of iterations
+      - The total effort each iteration can accomodate leads to number of user stories per iteration
+      - Sprint Planning meeting
+        - Discuss what are the needs
+      - Daily Scrum meeting / Standup meeting
+        - What did you do yesterday
+        - What will you do today
+        - Any obstacles
+      - Sprint Review
+        - Demonstrates story features
+        - Product owner evaluates the criteria and gets feedback
+        - Ensures business needs are met
+      - Sprint retrospective
+        - After each iteration
+        - Final team meeting in the sprint to determine what went well and what improvements can come
+    - Artifacts
+      - Split work into small concrete deliverables
+      - Sort by priority
+      - Product backlog
+        - List of features to be developed in the product
+        - Features described as user stories
+        - Scrum team estimates work associated with each story and ranks them in order of importance
+        - Weighted ranked features in the backlog results in roadmap
+        - Features in the backlog are put in sprints 
+    - Rules
