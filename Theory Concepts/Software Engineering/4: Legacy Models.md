@@ -1,0 +1,125 @@
+# Legacy Models
+
+- Waterfall Model
+  - Requirement Analysis
+  - Architecture
+  - Detailed design
+  - Implementation
+  - Testing 
+  - Deployment
+  - Maintenance
+
+- Advantages of the waterfall model
+  - Simple
+  - Clear phases
+  - Easy to manage
+  - Specific outcomes and review
+- Disadvantages of the Waterfall model
+  - Assumes requirements can be frozen
+  - Not flexible
+  - Sequential
+  - No working software till late
+  - High risk
+  - Poor model for long projects
+
+- V Model
+  - Developer Lifecycle
+    - BRS (Business Requirement Specification)
+    - System Requirement Specification
+    - High level design
+    - Low level design
+    - Implementation
+  - Tester Lifecycle
+    - Acceptance testing
+    - System testing
+    - System integration testing
+    - Component Testing
+    - Unit testing
+  - Happens simultaneously
+  - Each step in DLC corresponds to TLC
+
+- Advantages of the V Model
+  - Similar to waterfall
+  - Testing can happen before coding
+  - Higher probability of success
+- Disadvantages of V Model
+  - Similar to waterfall
+  - No early prototypes
+  - Change through the process needs change in testing
+
+- Prototyping
+  - Relatively cheap process
+  - Instead of freezing requirements, complete prototype built to understand requirements
+  - Steps
+    - Requirement gathering
+    - Quick design
+    - Building prototype
+    - Customer evaluation
+    - Refining prototype
+    - Engineer product
+
+- Advantages of Prototyping
+  - Active involvement of users
+  - Better risk mitigation
+  - Problems detected earlier
+  - Missing functionality easily identified
+  - Mostly stable
+- Disadvantages of prototyping
+  - May increase complexity of system
+  - Performance may not be optimal
+
+- Incremental Model
+  - Requirements partitioned and incremental plan is made for delivery
+  - Deliver partitions as they are ready
+  - Each subsequent release adds functionality to the previous release
+  - Steps
+    - Define outline requirements
+    - Assign requirements to increments
+    - Design system architecture
+    - Develop system increment
+    - Validate increment
+    - Integrate increment
+    - Validate system
+    - Deploy increment
+  - Advantages
+    - Customer value
+    - More flexible
+    - Easy to test and debug
+    - Easy to manage risk
+    - Continuous increments
+    - Reduces over functionality
+  - Disadvantages
+    - Needs good planning and design
+    - Needs clear and complete definitions
+    - Total cost higher than waterfall
+    - Hard to identify common facilities needed by all increments
+    - Management visibility reduced
+  - Usage
+    - Need to get product out early
+    - New technologies
+    - Resources with needed skillset not available
+    - High risk
+    - Major requirements are defined
+
+- Iterative Model
+  - Start with a skeleton, and refine the system through feedback and evolution
+  - Steps
+    - Outline description
+    - Requirements -> Initial version
+    - Design -> Intermediate versions
+    - Implementation -> Final versions
+  - Advantages
+    - Identifies requirements and visualisation
+    - Supports risk mitigation
+    - Redesign/Rework reduced
+    - Incremental investment
+  - Disadvantages
+    - Each phase is rigid with overlaps
+    - Costly system arch
+  - Usage
+    - Large projects
+
+- Contrasting Incremental and Iterative Models
+  - Incremental approach does not require going back when iterative does
+  - Incremental focuses on things not implemented, but iterative does
+  - Incremental does not leverage knowledge till then, whereas iterative learning carries forward
