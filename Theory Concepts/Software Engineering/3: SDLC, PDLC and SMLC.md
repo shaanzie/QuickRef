@@ -1,0 +1,66 @@
+# SDLC, PDLC and SMLC
+
+- SDLC
+  - Software Developement Lifecycle
+    - Requirement analysis
+      - Feasibility study
+      - Requirements phase
+    - Design
+      - Architecture
+      - Detailed design
+    - Implementation
+    - Testing
+    - Maintenance
+
+- PDLC
+  - Product Development Lifecycle
+    - Research
+    - Usability Engineering
+    - Prototyping
+    - Development
+    - Testing QA
+    - Documentation
+    - Porting
+    - Training
+    - Sales support
+    - Deployment
+    - Technical support
+    - Maintenance
+    - Performance Engineering
+
+- PMLC
+  - Product Management Lifecycle
+    - Feasibility Analysis
+    - Requirement Engineering
+    - Architecture and Design
+    - Implementation
+    - Testing
+    - Operation and Maintenance
+
+- SMLC
+  - Software Maintenance Lifecycle
+    - Delivered compoent poses problem
+    - Problem identification
+    - Analysis
+    - Approval for change
+    - Design the change
+    - Implement the change
+    - Review / Unit test change
+    - System, Regression, Acceptance, Testing
+    - Delivery (Patches, Releases)
+
+- Product Lifecycle
+  - Introduction
+    - Product built using a SDLC is initially released into market
+    - Attributes
+      - Market capitalization
+      - Sales
+      - Investment
+      - Competition
+      - Profit
+      - Support
+  - Growth
+  - Maturity
+  - Discontinuance
+    - Discontinue sales but provide support
+  - Obsolescence
