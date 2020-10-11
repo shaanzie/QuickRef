@@ -1,0 +1,43 @@
+# Software Project Planning
+
+- Intitiation and approval is at the end of feasibility study
+- Planning is the first task
+  - Involves looking ahead
+  - Make provision
+  - Makes a project plan depending on the nature of the project
+
+- Needs to answer questions from
+  - Sponsor
+    - How does the project fit in your roadmap
+    - Customer requirement
+    - Investment
+    - Timeframe
+    - Competitive scenario
+    - Who is responsible
+    - Resources required
+    - Exit criteria
+  - Customer
+    - Understandable plan
+    - Solution
+    - Timeframe
+    - Cost
+    - Criteria for acceptance
+    - Maintenance
+  - Execution Stakeholder
+    - Lifecycle
+    - Requirements
+    - Project Organization
+    - Operating procedures
+    - Communication mechanisms
+    - Work breakdown
+
+- Project Planning
+  - Understanding the project
+  - Lifecycle
+  - Organization
+  - Deliverables
+  - Estimating Effort
+  - Scheduling and allocating resources
+  - Identifying and managing risks
+  - Developing quaity management process
+  - Delivery plan and management
