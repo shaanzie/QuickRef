@@ -32,5 +32,3 @@
     - Release staff and equipment and inform stakeholders
     - Post mortem - post implementation review
     - Celebrate success
-
-- 
