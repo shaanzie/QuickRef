@@ -1,0 +1,56 @@
+# Architectural Views and Styles
+
+- Architectural View
+  - Views represent ways of describing the software architecture to be viewed differently by different stakeholders
+  - UI View, Process view, etc
+- Architectural Style
+  - How the subsystem or elements are organized or structured
+  - Pipe & filters, Client-server, etc
+- Architectural Patterns
+  - Well known solution for a problem
+  - MVC separating UI from the rest, etc
+
+- 4 ways of viewing architectural elements
+  - Structure of Modules
+    - Modules of implementation with some functional responsibility
+    - Structure the system as a set of code units
+    - Larger modules decomposed to sub-modules may be decomposed to sub-modules
+  - Component and Connector (View point)
+    - Component converts input to output
+    - Data element is the information needed to be processed
+    - Connected element is the glue between components, such as RPCs.
+    - Dynamic view of system in execution
+  - Allocation view
+    - Deployment structure, how software is assigned to hardware and what communication paths are used
+    - Implement structure which indicates how software is mapped onto file structures in development
+    - Work Assignment structure shows whos doing what and what knowledge is needed
+  - Krutchens (4+1 view)
+    - Use case view, exposing requirements
+    - Design view, class diagrams, sequence diagrams
+    - Process view, dynamic aspects and runtime behavior
+    - Implementation view, realisation of the system, UML diagrams
+    - Deployment view, system engineering issues
+
+- Architectural styles
+  - Pattern of organization of components in an architecture
+  - Addresses structure and behavior of the system
+  - Way of organizing modules
+  - Provides
+    - Vocabulary
+      - Design elements
+    - Design rules
+      - Constraints
+    - Semantic interpretation
+      - Well defined meaning of the connected design elements
+    - Analysis
+      - Components and connectors
+  - Some styles
+    - Main program with subroutines
+    - Implicit invocation
+    - Pipes and filters
+    - Repository
+    - Layers of abstraction
+    - Client Server
+    - Component based system
+    - Service Oriented Architecture
+    - Object Oriented Architecture
