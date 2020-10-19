@@ -1,0 +1,22 @@
+# Coding Guidelines
+
+- Characteristics of code
+  - Simple and Clear
+  - Naming
+    - Pascal Casing
+    - Camel Casing
+    - Underscore prefixing
+    - Conventions
+      - No keywords
+      - No names start with underscore
+      - Not longer than 31 chars
+      - No numeric value
+      - Descriptive of its purpose
+  - Structuring
+    - File structure
+      - Logically grouped
+      - Well partitioned
+    - Code and data structure
+      - Well encapsulated
+      - Initialized
+  - Ease of reading and understanding
