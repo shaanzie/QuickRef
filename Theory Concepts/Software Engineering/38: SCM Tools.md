@@ -1,0 +1,27 @@
+# SCM Tools
+
+- SCM Tools
+  - Source code administration
+    - RCS : GNU, old
+    - CVS : Concurrent version control
+    - ClearCase : Multiple servers, process modelling, policy checks
+    - GitHub
+  - Software build
+    - Converting source code to executables
+    - Make
+      - Makefile based building
+    - CruiseControl
+      - Continuous software builds
+    - FinalBuilder
+    - Maven
+      - Handles compilation, distribution, documentation, team collaboration and other tasks
+      - Can support multiple dev team environments
+      - Contains standard directory layouts and default build lifecycles with environment variables to support it
+  - Software installation
+    - Installs drivers, bootstrappers, etc
+    - Provide rollback, cleanup etc
+    - DeployMaster
+    - InstallAware
+  - Software bug tracking
+    - Keeps track of bugs
+    - Centralised overview of development requests
