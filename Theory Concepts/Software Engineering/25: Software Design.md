@@ -1,0 +1,62 @@
+# Software Design
+
+- Design is no definite formulation or completely prescriptive.
+  - Process is not the same as outcome
+  - Interactions between requirements engineering, architecting and design
+  - No stopping rule
+  - Every design problem is a symptom of another problem
+
+- Difference between architecture and design
+  - When it happens in the lifecycle
+  - Architecture happens earlier and is the bigger picture, design is the smaller implementation with local constraints
+  - Architecture faces towards strategy, structure and purpose. Design is tactical and faces towards implementation and practice, more concrete
+  - Architecture is the structure of components, design is problem solving and planning for a solution
+  - Architectural decisions are harder to change than design decisions which are simpler with lesser impact
+  - Architecture has more influence on non-functional requirements, whereas design has more influence on functional requirements
+
+- Design principles
+  - Further decomposition of components
+  - Identification and description of behavior of components
+  - Description of how interfaces are realised
+  - Description of how the system facilitates interaction with the user through UI
+  - Use of appropriate structural and behavioral design patterns
+  - Having maintenance and reuse as couple of its goals
+
+- Enabling techniques
+  - Abstraction
+    - Ensures focus on essential properties, abstracts irrelevant detials out
+    - Levels of abstraction
+      - Low level : specify behavior such as data storage
+      - High level : Data and relationships
+  - Modularity, coupling, cohesion
+    - Modularity is the extent to which a large module can be decomposed into smaller components
+    - Cohesion is the extent to which modules are dependent on each other, needs to be strong
+    - Coupling indicates how strongly a module is connected to others, needs to be loose
+  - Information hiding
+    - Hide details through specific access controls or classes
+    - Seperation of interface and implementation
+  - Limiting complexity
+    - Amount of effort required to build the solution
+    - Can be
+      - Intra modular - complexity of a single module
+      - Inter modular - complexity of multiple modules together
+  - Hierarchical structure
+
+- Key issues to be handled in Design
+  - Concurrency
+    - Parallel execution
+    - Threading
+    - Can give rise to deadlocks and races
+  - Event handling
+    - Message passing between objects
+  - Hardware software mapping
+    - Whether subsystems are realised in hardware or software
+  - Distribution of components
+    - Distributed applications are supported by middleware
+    - Consider connectivity
+  - Non-functional requirements
+    - Some design decision not localised and has system wide impacts
+  - Error, Exception handling, fault tolerance
+  - Interaction and presentation
+    - Reacting to user input effectively
+  - Data redundancy
