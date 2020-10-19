@@ -1,0 +1,36 @@
+# SCM Terminologies
+
+- Common terminologies
+  - Configuration Items (CIs)
+    - Any independent or aggregation of hardware, software or both, designated for configuration management and treated as a single entity in the management process
+    - Could be
+      - All types of code files
+      - Driver for test
+      - Requirement, anaysis, etc
+      - Manuals
+      - System configurations
+    - Challenges
+      - What are the items that need to be in configuration control
+        - Some items must be maintained for the lifetime of the software
+        - Use techniques to find CIs
+      - When do you start to place entities under configuration control
+        - Considerations on when to start
+        - Starting with CIs too early introduces too much bureaucracy
+        - Starting with CIs too late introduces chaos
+  - Baselines
+    - Specification or product that has been formally reviewed and managed
+    - Serves as basis for further development
+  - SCM Directories
+    - Programmer's directory
+      - Programmer's workspace
+      - Localised
+    - Central source code archive
+      - Entry is controlled
+      - Changes must be authorized
+    - Software Repositry
+      - Archive for various baselines
+  - Versions, Revisions, Releases
+    - Release is the formal distribution of an approved version
+    - Version is an initial release of a CI associated with a complete compilation of that item
+    - Revision is a change to a version that corrects only errors in the design/code but doesn't change functionality
+    - 7.5.2 denotes Release.Version.Revision
