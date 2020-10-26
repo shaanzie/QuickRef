@@ -1,0 +1,112 @@
+# Community Detection
+
+- Community structure
+  - Occurence of groups of nodes in a network that are more densely connected internally than with the rest of network
+  - In real networks, distribution of edges are locally inhomogeneous, with high concentration of edges within special groups of vertices and low concentration between these groups
+
+- Community Types
+  - Disjoint communities
+    - Nodes can be part of only a single community
+  - Overlapped communities
+    - Nodes can be part of multiple communities
+
+- Community Detection
+  - Method of finding groups in a complex system
+  - Aims to identify highly connected groups of individuals or objects
+  - Important to understand structure and functionality of large networks
+  - Algorithms
+    - Girvan-Newman
+    - Louvain
+    - Hierarchical clustering
+    - Clique based methods
+  - Basic idea
+    - Repeat
+      - Find out one inter-community edge
+      - Remove the edge
+      - Check if there's any disconnected components
+  - How to measure inter-commmunity
+    - If two communities are joined by a few inter-community edges, then all the paths from one community to another must pass the edges
+    - Various measures  
+      - Edge betweenness
+      - Random walk betweenness
+      - Current-flow betweenness
+
+- Girvan-Newman Algorithm
+  - Steps
+    - Calculate betweenness for all edges
+      - Shortest path between all pairs of vertices and count how many run along each edge
+      - BFS works here in O(m), forming a shortest path tree if there's only one path from a source vertex to a leaf
+      - Use this tree to calculate betweenness for each edge
+        - Find leaves, those nodes such that no shortest path to other nodes pass through them, and assign them a score of 1
+        - Starting with those edges farthest from the vertex, work upwards, assigning score of 1 + the sum of scores of the edges right below
+        - Resulting scores are the betweenness counts
+        - Repeat process for all vertices
+        - For more than one shortest path, we calculate number of paths and use these to weight the path counts
+        - Weight on vertex i represents the number of distinct shortest paths from source vertex to i
+        - If two vertices i and j are connected, with j farther than i from source s, then the fraction of a geodesic path from j through i to s is given by w<sub>i</sub>/w<sub>j</sub>
+    - Remove edge with highest betweenness
+    - Recalculate betweenness
+    - Repeat from step 2 until no edges remain
+  - O(m<sup>2</sup>n) algorithm in a network of n vertices and m edges
+
+- Hierarchical Clustering
+  - Aims at identifying groups of vertices with hgih similarity
+  - Types
+    - Agglomerative
+      - Clusters merged iteratively if their similarity is high
+    - Divisive
+      - Clusters split iteratively by removing edges connecting vertices with low similarity
+      - Girvan-Newman
+  - Dendrogram denotes the clustering formed, with the highest level being the whole network cluster
+  - These methods grossly fail to identify communities when overlaps are significant
+  - Cross section of a dendrogram gives the number of communities at that level
+
+- Louvain Algorithm
+  - Types of community detection algorithms
+    - Divisive
+    - Agglomerative
+    - Modularity optimization : Based on maximization of an objective function
+  - Approximation algorithms necessary for modularity optimization
+  - Clauset's algorithm
+    - Modularity Q is defined as 1 / 2m * Sum(A<sub>ij</sub> - k<sub>i</sub>k<sub>j</sub> / 2m) d(c<sub>i</sub>c<sub>j</sub>)
+      - A<sub>ij</sub> is the edge weight between nodes i and j
+      - k<sub>i</sub> and k<sub>j</sub> are the sum of the weights of the edges attached to the nodes i and j
+      - m is the sum of all the edge weights in the graph
+      - c<sub>i</sub> and c<sub>j</sub> are the communities of the nodes
+      - d is the Kronecker delta function (1 if x = y, 0 otherwise)
+    - This provides values lesser than found by say, simulated annealing
+    - This also has a tendency to produce super communities that contain a large fraction of the nodes, even on synthetic networks that have no significant community structure
+    - This slows down the algorithm significantly and makes it inapplicable to a large network
+  - Louvain Method
+    - Method to extract communities from large networks
+    - Optimization of modularity
+      - Modularity is a scale value between -1 (non-modular clustering) and 1 (fully modular clustering) that measures the density of edges inside communities to edges outside communities
+    - Simple, efficient and easy-to-implement
+    - One of the most widely used methods for detecting communities in large networks
+    - Performed in two steps
+      - Looks for small communities by optimizing modularity locally
+      - Aggregates nodes belonging to the same community and builds a new network whose nodes are the communities
+    - Repeated until maximum modularity
+    - Seems to run in O(nlog(n)) time
+
+- Louvain Algorithm
+  - Phase 1
+    - Start with a network weighted by edges
+    - Assign a different community to each node of the network
+    - For each node, evaluate the gain of modularity that would take place by removing one neighbour from its community and putting it in the other neighbour's community
+    - The node i is then placed in the community for which this gain is maximum, but only if the ain is positive
+  - Process is repeated till no further improvement is possible
+  - Gain in modularity = [(Sum(in) + k<sub>i,in</sub> / 2m) - (Sum(tot) + k<sub>i</sub> / 2m)<sup>2</sup>] - [(Sum(in)/2m) - (Sum(tot)/2m)<sup>2</sup> - (k<sub>i</sub>/2m)<sup>2</sup>]
+    - Moving an isolated node i in community C
+    - Sum(in) is the sum of weights of links inside C
+    - Sum(tot) is the sum of the weights of the links incident to nodes in C
+    - k<sub>i</sub> is the sum of weights of the links incident to node i
+    - k<sub>i,in</sub> is the sum of the weights of the links from i to nodes in C
+    - m is the sum of the weights of all links in the network
+  - Phase 2 (Community Aggregation)
+    - Building a new network who's nodes are now the communities found during the first phase
+    - Weights of the links between nodes in the corresponding two communities are given by the sum of weights of the links between nodes in the corresponding communities
+    - Self loops denote intra-community weights
+    - Phase 1 can be applied to this resulting network for optimizations as well
+
+- 
