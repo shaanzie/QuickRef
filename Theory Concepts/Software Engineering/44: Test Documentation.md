@@ -1,0 +1,57 @@
+# Test Documentation
+
+- Test artefacts
+  - Test policy
+    - A high level document which describes the principles, methods and all important testing goals of the organization
+  - Test strategy
+    - A high level document which identifies the test levels to be executed for the project
+  - Test plan
+    - Complete planning document which contains the scope, approach, resources, etc
+  - Test data
+    - A collection of data, and environmental setting
+  - Test scenario
+    - In scenarios, testers break down the product's functionality and interfae by modules and provide real-time status updates at all testing stages
+  - Test case
+    - Defines the set of inputs, preconditions and expected output, and possibly the intermediate steps
+  - Test suite
+    - A collection of test cases that are aimed to achieve a specific objective
+  - Test script
+    - A set of instructions that are performed on the system under test to execute the test
+  - Test reports
+    - A collection of documents that describe the outcome of the last execution
+  - Test library
+    - Repository of all test artifacts
+  - Traceability matrix
+    - A two way cross reference document connecting requirements, design and code module to a specific test case and back
+  - Test execution report
+    - Created after the entire testing execution process is complete
+    - Defines constancy of a product
+
+- Test plan
+  - Outlines strategy
+  - Usually contains
+    - Introduction to the test plan document
+    - Approach whih will be used while testing the software
+    - List of features to be tested
+    - List of deliverables that need to be tested
+    - Assumptions while testing the application
+    - List of test cases included
+    - The resources allocated for testing the application
+    - Any risks involved during the testing process
+    - A schedule of tasks and milestones to be achieved
+
+- Test case components
+  - ID
+  - Product module and version
+  - Revision history
+  - Purpose 
+  - Assumptions
+  - Preconditions
+
+- Advantages of test documentation
+  - Reduces and removes any uncertainities about testing activities
+  - Documentation not only offers a systematic approach to software testing, but also acts as training material to freshers
+  - It is also a good marketing and sales strategy
+  - Test documentation helps you offer a quality product to the client within specific time limits
+  - Helps configure or setup the program through a configuration document and operator manuals
+  - Test documentation helps you to improve transperancy with the client
