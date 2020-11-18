@@ -1,0 +1,94 @@
+# ITSM and ITIL
+
+- IT Infrastructure Systems Management is about how an IT organization manages IT services and provides a stable and responsive environment
+
+- There are number of IT Service Management (ITSM) processes which support these IT services like
+  - Availability management
+    - Goal of managing customer expectation of the levels of functioning of services in a cost effective manner
+    - Uptime-Availability
+    - Non-responsiveness-Downtime
+    - Proactive-Reactive
+    - 7 Rs of availability
+      - Redundancy
+      - Reputation
+      - Reliability
+      - Repairability
+      - Recoverability
+      - Responsiveness
+      - Robustness
+  - Performance/Tuning
+    - Maximise throughput
+    - Minimise response time
+  - Production Acceptance
+    - Consistent and successful deployment
+  - Change management
+    - Modifications to and in the IT environment
+    - Productive, emergency or reactive
+    - Control change and change coordination
+  - Problem management
+    - Identify, log, track, resolve and analyse problems
+  - Storage management and Network management
+    - Ensure performance, integrity, reliability of storage and data
+  - Configuration management
+    - Document interrelationship of various version of infrastructure
+  - Capacity planning
+    - Predicts when, how much and what type of additional resources may be required
+  - Security
+    - Security controls to safeguard the availability, integrity and confidentiality of designated data
+  - Business continuity
+    - Continuous operation of critical business systems in case of disasters
+  - Facilities management
+    - Supplements the organizational facilities team and focuses on supporting appropriate physical environment
+
+- IT Infrastructure Library (ITIL) is a framework or a set of ITSM processes that focuses on aligning IT services with business needs
+  - Establishing and integration
+  - Organization strategy
+  - Delivering value
+  - Maintaining minimum competency
+
+- ITIL is available as a service lifecycle with the following steps
+  - Service strategy
+    - Strategic guidance for investments in services
+  - Service design
+    - Service strategy transformed to plan
+  - Service transition
+    - Develops capabilities for new services
+  - Service operations
+    - Manages services in support environments
+  - Continual service improvement
+    - Incremental large scale improvements to services
+
+- Objectives of ITSM
+  - Stability
+  - Scaling
+  - Responsiveness
+  - Predictable support
+  - Reduction in cost
+  - Flexibility
+  - Responsiveness
+  - Productivity
+  - Consumer satisfaction
+  - Security and reliability
+  
+- To do these, IT infra management needs
+  - Exec support
+  - Services as an approach
+  - Supporting processes
+
+- ITIL could be applied through
+  - Best practice guidance
+  - Non-Proprietary
+  - Comprehensive
+
+- ITIL 4 has 34 practices categorized into
+  - General management practices
+    - Architecture management
+    - Risk management
+    - Project management
+  - Technical management practices
+    - Infrastructure and platform management
+    - SDM
+  - Service Management practices
+    - Availability management
+    - Capacity and performance management
+    - Incident management
