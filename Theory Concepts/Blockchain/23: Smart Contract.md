@@ -24,7 +24,9 @@
 
 - There are two types of SCs
   - Deterministic
+    - SCs that dont depend on outside information out of the blockchain
   - Non-deterministic
+    - Outside paty needed (Oracle) to facilitate smart contract execution
 
 - Creation and Deployment of a SC
   - Understand use case
@@ -41,3 +43,26 @@
   - Fraud reduction
   - Cost efficiency
   - Records keeping
+
+- Components of an ethereum blockchain
+  - Node/Client: A node is device that communicated with the ethereum network
+  - Block: A block is a package of data that has zero or more transactions, the hash of the previous block, and some other optional data
+  - Miners: Miners add blocks to the blockchain
+  - Proof of work: An activity that miners undertake to write new transactions to a block
+  - Ethereum virtual machine: Decentralized computing platform
+  - Ether: Name of the currency in ethereum
+  - Gas: Pricing value required to successfully perform and execute a transaction
+  - Gas limit: Maximum amount of gas you are willing to pay for a smart contract execution
+  - Mining Pool: Groups of miners that work together to mine blocks on the network
+  - Main-net: Main ethereum blockchain network
+  - Whisper client: Lets nodes in the network communicate with each other
+  - Swarm client: Decentralized storage platform by ethereum
+
+- Use cases for Smart Contract Execution
+  - Automated triggers
+    - Execute a contract under a certain condition
+    - Rebalance pool periodically
+    - Poking oracles to refresh data
+    - Paying out pro-rated dividends for security tokens
+  - State and Event Monitoring
+    - Monitoring allows to know when conditions are met
