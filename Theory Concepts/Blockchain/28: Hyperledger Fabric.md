@@ -94,3 +94,30 @@
   - Client collects all responses and sends to orderer
   - Orderer sees all transactions and orders them and forms a block
   - Block is sent to all committers that check the transaction and add the block to their own copy of the ledger
+
+- Benefits of this flow
+  - Specifies who in the system needs to validate a transaction
+  - Eliminates non-deterministic transactions
+
+- Ordering services
+  - Orders a sequence of transactions
+  - Communication is via channels, and configuration is specified in genesis
+  - Two types
+    - SOLO
+      - Single node
+      - Meant for dev purposes
+      - FIFO order
+    - Kafka
+      - Crash tolerant
+      - Majority consensus mechanism
+
+- Channel
+  - Provide a notion of privacy
+  - Each channel has its own ledger and data available for all peers in that channel
+
+- Fabric Peer
+  - Each peer can connect to one or more channels
+
+- Fabric Certificate Authority
+  - Implementation of certificate authority
+  - Has a highly available database
