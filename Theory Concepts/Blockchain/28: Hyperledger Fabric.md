@@ -121,3 +121,29 @@
 - Fabric Certificate Authority
   - Implementation of certificate authority
   - Has a highly available database
+
+- Organizations
+  - Legal entities
+  - Recognized by identities on the blockchain network
+  - Can define a set of administrators to run the peers
+  - One membership service provider per organization
+
+- Transport Layer Security
+  - Cryptographic protocol that secures all communications over a computer network
+  - Provides 2 important properties
+    - Privacy
+    - Data integrity
+  - Uses symmetric cryptography
+  - Uses public key cryptography to authenticate identities
+
+- Channel MSP information
+  - Which peers and which orders can join the channel
+  - Queryable
+  - Determines which client apps can connect to this channel
+
+- New user registration
+  - Administrator calls register with an identity
+  - Contacts the CA and CA returns a secret
+  - The admin sends enrollment ID and secret to user, with a certificate
+  - This forms a long term identity the user can use to transact
+  - Once the user gets this, he uses the secret to enroll with the fabric CA and return the enrollment certificate for them
