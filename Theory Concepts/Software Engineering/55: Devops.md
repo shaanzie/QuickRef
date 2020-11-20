@@ -40,3 +40,10 @@
       - Teams
       - Complexity
       - Workload
+
+- Devops and AGILE
+  - Devops is an approach which looks to remove the silos of development activities of building and operations activities of maintenance and deployment
+    - Agile is a methodology which supports changes, reduces planning overhead and delivers products periodically
+  - Devops focuses on constant testing and delivery while the Agile focuses on constant changes
+  - The target area of Agile is software dev whereas the target area of Devops is to give end to end business solutions and fast delivery
+  - Devops focuses more on operational and business readiness whereas Agile focuses on functional and non-functional readiness
