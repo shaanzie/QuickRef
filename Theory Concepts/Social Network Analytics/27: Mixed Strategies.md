@@ -19,3 +19,7 @@
 
 - Every finite game has a Nash equilibrium, not all have pure strategy Nash equilibrium
   - Games can have both pure and mixed strategy equilibria
+
+- In 2x2 games
+  - Each pure strategy in a mixed strategy equi pays the same at equilibrium
+  - In equi, each player's probability distribution makes all others indifferent between their pure strategies
