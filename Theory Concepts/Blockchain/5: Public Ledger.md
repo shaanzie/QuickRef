@@ -18,6 +18,8 @@
     - Tracks debits and credits
     - Tells the story of a transaction from all sides
     - Distributed ledger record
+    - Blockchain is an example
+    - Cryptography is the third entry
 
 - Features
   - Synchronized and accessile across different sites
